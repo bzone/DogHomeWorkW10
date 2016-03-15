@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     var module = angular.module('app', ['onsen']);
-    var url = "http://daredot.dev.thickmug.com";
+    var url = "http://doghomework.dev.thickmug.com";
     var currentApiKey;
     var timeinterval = 0;
 
@@ -102,7 +102,21 @@
             }
         }
 
-        //NOTE: Rejestracja uzytkownika
+
+        $scope.registerUserE1 = function () {
+                navi.pushPage('register2.html', {
+                    animation: 'slide'
+                });
+            }
+        
+         $scope.registerUserE2 = function () {
+                navi.pushPage('register3.html', {
+                    animation: 'slide'
+                });
+            }
+         
+         
+            //NOTE: Rejestracja uzytkownika
         $scope.registerUser = function () {
             var user_email = $("#newUserEmail").val();
             var user_name = $("#newUserName").val();

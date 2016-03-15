@@ -42,8 +42,10 @@
         <ons-page style="background-color:#E60E2A !Important;" class="loginBg">
             <form class="loginStyle">
                 <div class="bigLogo"></div>
-                <input type="email" id="loginEmail" class="loginInputStyle" placeholder="e-mail" />
-                <input type="password" id="loginPassword" class="loginInputStyle" placeholder="hasło" />
+                <div class="formIcon iconMail">
+                <input type="email" id="loginEmail" class="loginInputStyle firstInput" placeholder="e-mail" /></div>
+                        <div class="formIcon iconPass">
+                            <input type="password" id="loginPassword" class="loginInputStyle lastInput" placeholder="hasło" /></div>
                 <a class="submitButton" ng-click="loginUser()">zaloguj się</a>
                 <br/>
                 <span class="lub">lub</span>
@@ -56,21 +58,72 @@
 
 
     <ons-template id="register.html">
-
         <ons-page class="loginBg">
             <ons-toolbar>
                 <div class="left">
                     <ons-toolbar-button onclick="navi.popPage();">
-                        <ons-icon icon="ion-chevron-left" fixed-width="false" style="font-size: 26px; vertical-align: -4px"></ons-icon>
+                        <ons-icon icon="ion-ios-arrow-back" fixed-width="false" style="font-size: 26px; vertical-align: -4px"></ons-icon>
                     </ons-toolbar-button>
                 </div>
             </ons-toolbar>
             <form class="loginStyle">
-                <div class="bigLogo logoMargin"></div>
-                <input type="text" id="newUserName" class="loginInputStyle" placeholder="nazwa użytkownika" />
-                <input type="email" id="newUserEmail" class="loginInputStyle" placeholder="e-mail" />
-                <input type="password" id="newUserPassword" class="loginInputStyle" placeholder="hasło" />
-                <a class="submitButton" ng-click="registerUser()">Utwórz konto i zaloguj</a>
+                <h1>ETAP 1 z 5</h1>
+                <h2>DANE DO LOGOWANIA</h2>
+                <div class="clear"></div>
+                <div class="formIcon iconMail">
+                    <input type="email" id="newUserEmail" class="loginInputStyle firstInput" placeholder="e-mail" /></div>
+                <div class="formIcon iconPass"><input type="password" id="newUserPassword" class="loginInputStyle" placeholder="hasło" /></div>
+                <div class="formIcon iconPass"><input type="password" id="newUserPasswordR" class="loginInputStyle lastInput" placeholder="powtórz hasło" /></div>
+                <a class="submitButton" ng-click="registerUserE1()">dalej</a>
+                <br/>
+            </form>
+        </ons-page>
+    </ons-template>
+    
+        <ons-template id="register2.html">
+        <ons-page class="loginBg">
+            <ons-toolbar>
+                <div class="left">
+                    <ons-toolbar-button onclick="navi.popPage();">
+                        <ons-icon icon="ion-ios-arrow-back" fixed-width="false" style="font-size: 26px; vertical-align: -4px"></ons-icon>
+                    </ons-toolbar-button>
+                </div>
+            </ons-toolbar>
+            <form class="loginStyle">
+                <h1>ETAP 2 z 5</h1>
+                <h2>DANE WŁAŚCICIELA</h2>
+                <div class="clear"></div>
+                <div class="formIcon iconPerson">
+                    <input type="text" id="newUserName" class="loginInputStyle firstInput" placeholder="imię i nazwisko" /></div>
+                <div class="formIcon iconLocation"><input type="text" id="newUserLocation1" class="loginInputStyle" placeholder="miesjscowość" /></div>
+                <div class="formIcon iconLocation"><input type="text" id="newUserLocation2" class="loginInputStyle" placeholder="ulica" /></div>
+                <div class="formIcon iconLocation"><input type="text" id="newUserLocation3" class="loginInputStyle" placeholder="nr domu/nr lokalu" /></div>
+                <div class="formIcon iconPhone"><input type="tel" id="newUserPhone" class="loginInputStyle lastInput" placeholder="telefon kontaktowy" /></div>
+                <a class="submitButton" ng-click="registerUserE2()">dalej</a>
+                <br/>
+            </form>
+        </ons-page>
+    </ons-template>
+    
+      <ons-template id="register3.html">
+        <ons-page class="loginBg">
+            <ons-toolbar>
+                <div class="left">
+                    <ons-toolbar-button onclick="navi.popPage();">
+                        <ons-icon icon="ion-ios-arrow-back" fixed-width="false" style="font-size: 26px; vertical-align: -4px"></ons-icon>
+                    </ons-toolbar-button>
+                </div>
+            </ons-toolbar>
+            <form class="loginStyle">
+                <h1>ETAP 3 z 5</h1>
+                <h2>INFORMACJE O PSIE</h2>
+                <div class="clear"></div>
+             <div class="inputWithLabel"><span class="inputLabel">imię</span><input type="text" id="newUserDogName" class="loginInputStyle connectedInput"/></div>
+                <div class="inputWithLabel"><span class="inputLabel">rasa</span><input type="text" id="newUserDogRace" class="loginInputStyle connectedInput"/></div>
+                <div class="inputWithLabel"><span class="inputLabel">płeć</span><input type="text" id="newUserDogSex" class="loginInputStyle connectedInput"/></div>
+                <div class="formIcon iconLocation"><input type="text" id="newUserLocation3" class="loginInputStyle" placeholder="nr domu/nr lokalu" /></div>
+                <div class="formIcon iconPhone"><input type="tel" id="newUserPhone" class="loginInputStyle lastInput" placeholder="telefon kontaktowy" /></div>
+                <a class="submitButton" ng-click="registerUserE2()">dalej</a>
                 <br/>
             </form>
         </ons-page>
@@ -82,7 +135,7 @@
             <ons-toolbar>
                 <div class="left">
                     <ons-toolbar-button onclick="navi.popPage();">
-                        <ons-icon icon="ion-chevron-left" fixed-width="false" style="font-size: 26px; vertical-align: -4px"></ons-icon>
+                        <ons-icon icon="ion-ios-arrow-back" fixed-width="false" style="font-size: 26px; vertical-align: -4px"></ons-icon>
                     </ons-toolbar-button>
                 </div>
             </ons-toolbar>
@@ -92,8 +145,9 @@
                 <p class="recover">Podaj nazwę uzytkownika i adres e-mail powiązany z Twoim kontem.
                     <br/>Na podany adres otrzymasz przypomnienia swojego hasła.</p>
                 <br/>
-                <input type="text" id="recoverUser" class="loginInputStyle" placeholder="twoja nazwa użytkownika" />
-                <input type="email" id="recoverEmail" class="loginInputStyle" placeholder="twój e-mail" />
+                    <div class="formIcon iconPerson">
+                        <input type="text" id="recoverUser" class="loginInputStyle firstInput" placeholder="twoja nazwa użytkownika" /></div>
+                <div class="formIcon iconMail"><input type="email" id="recoverEmail" class="loginInputStyle lastInput" placeholder="twój e-mail" /></div>
                 <a class="submitButton" ng-click="recoverPassword()">zresetuj hasło</a>
                 <br/>
             </form>

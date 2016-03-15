@@ -17,6 +17,20 @@
  * under the License.
  */
 
+
+@font-face {
+    font-family: 'linottesemibold';
+    src: url('linotte-semibold-webfont.eot');
+    src: url('linotte-semibold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('linotte-semibold-webfont.woff2') format('woff2'),
+         url('linotte-semibold-webfont.woff') format('woff'),
+         url('linotte-semibold-webfont.ttf') format('truetype'),
+         url('linotte-semibold-webfont.svg#linottesemibold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 @-o-viewport {
     width: 450px;
 }
@@ -40,6 +54,7 @@
 body,
 html {
     -ms-overflow-style: none !important;
+    font-family: 'linottesemibold';
 }
 
 * {
@@ -83,18 +98,35 @@ body {
     /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;
     /* prevent copy paste, to allow, change 'none' to 'text' */
-    font-family: Arial, sans-serif !important;
+    font-family: 'linottesemibold' !important;
     font-size: 12px;
     height: 100%;
     margin: 0px;
     padding: 0px;
     width: 100%;
     -ms-content-zooming: none;
-    background-color: #E60E2A;
+    background-color: #2C323D;
 }
 
-.page__content {
-    background-color: #E60E2A !important;
+.page {
+font-family: 'linottesemibold' !important;
+}
+
+h1 {
+    text-align: center;
+    color: #23B7DB;
+    font-size: 50px;
+    margin-bottom: 0px;
+    line-height: 55px;
+}
+
+h2 {
+    text-align: center;
+    color: #FFF;
+    font-size: 20px;
+    line-height: 25px;
+    margin-top: 0px;
+    margin-bottom: 40px;
 }
 
 
@@ -144,48 +176,70 @@ form.loginStyle {
     width: 80%;
     margin: auto;
 }
+input {
+  -webkit-appearance: none;
+}
 
 input {
     width: 100%;
     padding: 10px;
     background-color: #FFF;
     color: #000;
-    border-radius: 23px;
-    text-align: center;
+    text-align: left;
     box-sizing: border-box;
     border: 0;
-    height: 46px;
+    height: 56px;
     font-size: 16px;
-    margin-bottom: 10px;
-    font-family: Arial, sans-serif !important;
+    font-family: 'linottesemibold' !important;
+    margin-bottom: 1px;
+    border-radius: 0px;
 }
 
+.firstInput {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.lastInput {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+
+
 input::-webkit-input-placeholder {
-    color: #CCC;
+    color: #9292A0;  
 }
 
 input:-ms-input-placeholder {
-    color: #CCC;
+    color: #9292A0;
 }
 
 .submitButton {
     width: 100%;
     padding: 10px;
-    background-color: #000;
+    background-color: #23B7DB;
     color: #FFF;
-    border-radius: 23px;
+    border-radius: 10px;
     text-align: center;
     box-sizing: border-box;
     border: 0;
-    height: 46px;
-    font-size: 16px;
+    height: 56px;
+    font-size: 20px;
     margin-bottom: 0px;
     display: block;
-    line-height: 26px;
+    line-height: 36px;
+    margin-top: 10px;
+    text-transform: uppercase;
+    font-family: 'linottesemibold' !important;
+    font-weight: bold;
+    box-shadow: 0px 2px 0px #2092AB;
+        
 }
 
 .submitButton.alternative {
-    background-color: #af1b2d;
+    background-color: #171D24;
+       box-shadow: 0px 2px 0px #000000;
 }
 
 .submitButton.white {
@@ -202,21 +256,75 @@ input:-ms-input-placeholder {
     margin-bottom: 20px;
 }
 
+.formIcon {
+    position: relative;
+}
+
+.formIcon:after {
+    display: block;
+    content: "";
+    width: 40px;
+    height: 100%;
+    position: absolute;
+    top:0px;
+    right: 10px;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.iconMail:after {
+    background-image: url('email_icon.png');
+    background-size: 25px 20px;
+}
+
+.iconPass:after {
+    background-image: url('password_icon.png');
+    background-size: 22px 27px;
+}
+
+.iconPerson:after {
+    background-image: url('icon-person.png');
+    background-size: 27px 27px;
+}
+
+.iconLocation:after {
+    background-image: url('icon_location.png');
+    background-size: 23px 30px;
+}
+
+.iconPhone:after {
+    background-image: url('icon_phone.png');
+    background-size: 27px 27px;
+}
+
 .bigLogo {
     width: 100%;
-    height: 160px;
+    height: 180px;
     background: url(logo.png);
     background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 .loginBg .page__content {
-    background-image: url(homebg.png) !important;
+  
+}
+
+.page__background {
+    background-color: #1F1F1F;
+      background-image: url(homebg.png) !important;
     background-size: cover;
     background-position: bottom center;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 p.recover {
@@ -224,7 +332,7 @@ p.recover {
 }
 
 .logoMargin {
-    margin-top: -25px;
+    margin-top: 10px;
 }
 
 
@@ -285,7 +393,6 @@ p.recover {
 
 ons-page.ng-scope.page.page--menu-page,
 ons-page.ng-scope.page.page--menu-page .page__content {
-    background-color: #231F20 !important;
 }
 
 a.submitButton.logOut {
@@ -576,7 +683,7 @@ span.title {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+    font-family: 'linottesemibold';
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-weight: 400;
@@ -661,6 +768,8 @@ ons-icon.ng-scope.ons-icon.ons-icon--ion.ion-navicon:before {
 
 ons-icon.ng-scope.ons-icon.ons-icon--ion.ion-ios-arrow-back {
     width: 28px;
+        font-size: 37px !important;
+    vertical-align: -11px !important;
     background-size: contain;
     background-repeat: no-repeat;
     background-image: url('backarrow.png');
@@ -1042,4 +1151,23 @@ span.location {
     background-image: url('map_icon.png');
     background-size: 28px 31px;
     z-index: 90;
+}
+
+input#newUserName {}
+
+.connectedInput {
+    width: 60%;
+    text-align: right;
+}
+
+span.inputLabel {
+    display: block;
+    width: 40%;
+    float: left;
+    height: 56px;
+    line-height: 56px;
+    background-color: #FFF;
+    color: #8F8F98;
+    padding-left: 10px;
+    box-sizing: border-box;
 }
