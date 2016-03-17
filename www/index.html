@@ -43,9 +43,11 @@
             <form class="loginStyle">
                 <div class="bigLogo"></div>
                 <div class="formIcon iconMail">
-                <input type="email" id="loginEmail" class="loginInputStyle firstInput" placeholder="e-mail" /></div>
-                        <div class="formIcon iconPass">
-                            <input type="password" id="loginPassword" class="loginInputStyle lastInput" placeholder="hasło" /></div>
+                    <input type="email" id="loginEmail" class="loginInputStyle firstInput" placeholder="e-mail" />
+                </div>
+                <div class="formIcon iconPass">
+                    <input type="password" id="loginPassword" class="loginInputStyle lastInput" placeholder="hasło" />
+                </div>
                 <a class="submitButton" ng-click="loginUser()">zaloguj się</a>
                 <br/>
                 <span class="lub">lub</span>
@@ -71,16 +73,21 @@
                 <h2>DANE DO LOGOWANIA</h2>
                 <div class="clear"></div>
                 <div class="formIcon iconMail">
-                    <input type="email" id="newUserEmail" class="loginInputStyle firstInput" placeholder="e-mail" /></div>
-                <div class="formIcon iconPass"><input type="password" id="newUserPassword" class="loginInputStyle" placeholder="hasło" /></div>
-                <div class="formIcon iconPass"><input type="password" id="newUserPasswordR" class="loginInputStyle lastInput" placeholder="powtórz hasło" /></div>
+                    <input type="email" id="newUserEmail" class="loginInputStyle firstInput" placeholder="e-mail" />
+                </div>
+                <div class="formIcon iconPass">
+                    <input type="password" id="newUserPassword" class="loginInputStyle" placeholder="hasło" />
+                </div>
+                <div class="formIcon iconPass">
+                    <input type="password" id="newUserPasswordR" class="loginInputStyle lastInput" placeholder="powtórz hasło" />
+                </div>
                 <a class="submitButton" ng-click="registerUserE1()">dalej</a>
                 <br/>
             </form>
         </ons-page>
     </ons-template>
-    
-        <ons-template id="register2.html">
+
+    <ons-template id="register2.html">
         <ons-page class="loginBg">
             <ons-toolbar>
                 <div class="left">
@@ -94,18 +101,27 @@
                 <h2>DANE WŁAŚCICIELA</h2>
                 <div class="clear"></div>
                 <div class="formIcon iconPerson">
-                    <input type="text" id="newUserName" class="loginInputStyle firstInput" placeholder="imię i nazwisko" /></div>
-                <div class="formIcon iconLocation"><input type="text" id="newUserLocation1" class="loginInputStyle" placeholder="miesjscowość" /></div>
-                <div class="formIcon iconLocation"><input type="text" id="newUserLocation2" class="loginInputStyle" placeholder="ulica" /></div>
-                <div class="formIcon iconLocation"><input type="text" id="newUserLocation3" class="loginInputStyle" placeholder="nr domu/nr lokalu" /></div>
-                <div class="formIcon iconPhone"><input type="tel" id="newUserPhone" class="loginInputStyle lastInput" placeholder="telefon kontaktowy" /></div>
+                    <input type="text" id="newUserName" class="loginInputStyle firstInput" placeholder="imię i nazwisko" />
+                </div>
+                <div class="formIcon iconLocation">
+                    <input type="text" id="newUserLocation1" class="loginInputStyle" placeholder="miesjscowość" />
+                </div>
+                <div class="formIcon iconLocation">
+                    <input type="text" id="newUserLocation2" class="loginInputStyle" placeholder="ulica" />
+                </div>
+                <div class="formIcon iconLocation">
+                    <input type="text" id="newUserLocation3" class="loginInputStyle" placeholder="nr domu/nr lokalu" />
+                </div>
+                <div class="formIcon iconPhone">
+                    <input type="tel" id="newUserPhone" class="loginInputStyle lastInput" placeholder="telefon kontaktowy" />
+                </div>
                 <a class="submitButton" ng-click="registerUserE2()">dalej</a>
                 <br/>
             </form>
         </ons-page>
     </ons-template>
-    
-      <ons-template id="register3.html">
+
+    <ons-template id="register3.html">
         <ons-page class="loginBg">
             <ons-toolbar>
                 <div class="left">
@@ -118,12 +134,225 @@
                 <h1>ETAP 3 z 5</h1>
                 <h2>INFORMACJE O PSIE</h2>
                 <div class="clear"></div>
-             <div class="inputWithLabel"><span class="inputLabel">imię</span><input type="text" id="newUserDogName" class="loginInputStyle connectedInput"/></div>
-                <div class="inputWithLabel"><span class="inputLabel">rasa</span><input type="text" id="newUserDogRace" class="loginInputStyle connectedInput"/></div>
-                <div class="inputWithLabel"><span class="inputLabel">płeć</span><input type="text" id="newUserDogSex" class="loginInputStyle connectedInput"/></div>
-                <div class="formIcon iconLocation"><input type="text" id="newUserLocation3" class="loginInputStyle" placeholder="nr domu/nr lokalu" /></div>
-                <div class="formIcon iconPhone"><input type="tel" id="newUserPhone" class="loginInputStyle lastInput" placeholder="telefon kontaktowy" /></div>
-                <a class="submitButton" ng-click="registerUserE2()">dalej</a>
+                <div class="inputWithLabel"><span class="inputLabel borderRadiusTL">imię</span>
+                    <input type="text" id="newUserDogName" class="loginInputStyle connectedInput borderRadiusTR" />
+                </div>
+                <div class="inputWithLabel"><span class="inputLabel">rasa</span>
+                    <input type="text" id="newUserDogRace" class="loginInputStyle connectedInput" />
+                </div>
+                <div class="inputWithLabel"><span class="inputLabel">płeć</span>
+                    <select class="inputClear loginInputStyle connectedInput" dir="rtl">
+                        <option value="suka">suka</option>
+                        <option value="pies">pies</option>
+                    </select>
+                </div>
+                 <div class="formLine"></div>
+                <div class="inputWithLabel"><span class="inputLabel">data urodzenia</span>
+                    <input type="date" class="loginInputStyle connectedInput" value="{{date | date:'yyyy-MM-dd'}}" step="1" class="inputClear">
+                </div>
+                <div class="inputWithLabel"><span class="inputLabel">waga</span>
+                    <select class="inputClear loginInputStyle connectedInput" dir="rtl">
+                        <option value="1">1kg</option>
+                        <option value="2">2kg</option>
+                        <option value="3">3kg</option>
+                        <option value="4">4kg</option>
+                        <option value="5">5kg</option>
+                        <option value="6">6kg</option>
+                        <option value="7">7kg</option>
+                        <option value="8">8kg</option>
+                        <option value="9">9kg</option>
+                        <option value="10">10kg</option>
+                        <option value="11">11kg</option>
+                        <option value="12">12kg</option>
+                        <option value="13">13kg</option>
+                        <option value="14">14kg</option>
+                        <option value="15">15kg</option>
+                        <option value="16">16kg</option>
+                        <option value="17">17kg</option>
+                        <option value="18">18kg</option>
+                        <option value="19">19kg</option>
+                        <option value="20">20kg</option>
+                        <option value="21">21kg</option>
+                        <option value="22">22kg</option>
+                        <option value="23">23kg</option>
+                        <option value="24">24kg</option>
+                        <option value="25">25kg</option>
+                        <option value="26">26kg</option>
+                        <option value="27">27kg</option>
+                        <option value="28">28kg</option>
+                        <option value="29">29kg</option>
+                        <option value="30">30kg</option>
+                        <option value="31">31kg</option>
+                        <option value="32">32kg</option>
+                        <option value="33">33kg</option>
+                        <option value="34">34kg</option>
+                        <option value="35">35kg</option>
+                        <option value="36">36kg</option>
+                        <option value="37">37kg</option>
+                        <option value="38">38kg</option>
+                        <option value="39">39kg</option>
+                        <option value="40">40kg</option>
+                        <option value="41">41kg</option>
+                        <option value="42">42kg</option>
+                        <option value="43">43kg</option>
+                        <option value="44">44kg</option>
+                        <option value="45">45kg</option>
+                        <option value="46">46kg</option>
+                        <option value="47">47kg</option>
+                        <option value="48">48kg</option>
+                        <option value="49">49kg</option>
+                        <option value="50">50kg</option>
+                        <option value="51">51kg</option>
+                        <option value="52">52kg</option>
+                        <option value="53">53kg</option>
+                        <option value="54">54kg</option>
+                        <option value="55">55kg</option>
+                        <option value="56">56kg</option>
+                        <option value="57">57kg</option>
+                        <option value="58">58kg</option>
+                        <option value="59">59kg</option>
+                        <option value="60">60kg</option>
+                        <option value="61">61kg</option>
+                        <option value="62">62kg</option>
+                        <option value="63">63kg</option>
+                        <option value="64">64kg</option>
+                        <option value="65">65kg</option>
+                        <option value="66">66kg</option>
+                        <option value="67">67kg</option>
+                        <option value="68">68kg</option>
+                        <option value="69">69kg</option>
+                        <option value="70">70kg</option>
+                        <option value="71">71kg</option>
+                        <option value="72">72kg</option>
+                        <option value="73">73kg</option>
+                        <option value="74">74kg</option>
+                        <option value="75">75kg</option>
+                        <option value="76">76kg</option>
+                        <option value="77">77kg</option>
+                        <option value="78">78kg</option>
+                        <option value="79">79kg</option>
+                        <option value="80">80kg</option>
+                        <option value="81">81kg</option>
+                        <option value="82">82kg</option>
+                        <option value="83">83kg</option>
+                        <option value="84">84kg</option>
+                        <option value="85">85kg</option>
+                        <option value="86">86kg</option>
+                        <option value="87">87kg</option>
+                        <option value="88">88kg</option>
+                        <option value="89">89kg</option>
+                        <option value="90">90kg</option>
+                        <option value="91">91kg</option>
+                        <option value="92">92kg</option>
+                        <option value="93">93kg</option>
+                        <option value="94">94kg</option>
+                        <option value="95">95kg</option>
+                        <option value="96">96kg</option>
+                        <option value="97">97kg</option>
+                        <option value="98">98kg</option>
+                        <option value="99">99kg</option>
+                        <option value="100">100kg</option>
+                        <option value="101">101kg</option>
+                        <option value="102">102kg</option>
+                        <option value="103">103kg</option>
+                        <option value="104">104kg</option>
+                        <option value="105">105kg</option>
+                        <option value="106">106kg</option>
+                        <option value="107">107kg</option>
+                        <option value="108">108kg</option>
+                        <option value="109">109kg</option>
+                        <option value="110">110kg</option>
+                        <option value="111">111kg</option>
+                        <option value="112">112kg</option>
+                        <option value="113">113kg</option>
+                        <option value="114">114kg</option>
+                        <option value="115">115kg</option>
+                    </select>
+                </div>
+                  <div class="formLine"></div>
+                  <div class="inputWithLabel"><span class="inputLabel">sterylizacja</span>
+                    <select class="inputClear loginInputStyle connectedInput" dir="rtl">
+                        <option value="suka">nie</option>
+                        <option value="pies">tak</option>
+                    </select>
+                </div>
+                 <div class="formLine"></div>
+                  <div class="inputWithLabel marginB"><span class="inputLabel borderRadiusBL">chip</span>
+                    <select class="inputClear loginInputStyle connectedInput borderRadiusBR" dir="rtl">
+                        <option value="suka">nie</option>
+                        <option value="pies">tak</option>
+                    </select>
+                </div>
+
+                <a class="submitButton" ng-click="registerUserE3()">dalej</a>
+                <br/>
+            </form>
+        </ons-page>
+    </ons-template>
+    
+        <ons-template id="register4.html">
+        <ons-page class="loginBg">
+            <ons-toolbar>
+                <div class="left">
+                    <ons-toolbar-button onclick="navi.popPage();">
+                        <ons-icon icon="ion-ios-arrow-back" fixed-width="false" style="font-size: 26px; vertical-align: -4px"></ons-icon>
+                    </ons-toolbar-button>
+                </div>
+            </ons-toolbar>
+            <form class="loginStyle">
+                <h1>ETAP 4 z 5</h1>
+                <h2>SZCZEPIENIA</h2>
+                <div class="clear"></div>
+                <div class="inputWithLabel"><span class="inputLabel borderRadiusTL">wścieklizna</span>
+                    <div class="customCheckboxHolder borderRadiusTR" ng-click="wsciekliznaCheckbox()">
+                        <div class="customCheckboxActive" ng-if="newUser.wscieklizna"></div>
+                        <div class="customCheckboxInActive" ng-if="!newUser.wscieklizna"></div>
+                    </div>
+                </div>
+                   <div class="formLine"></div>
+                <div class="inputWithLabel"><span class="inputLabel">data</span>
+                    <input type="date" class="loginInputStyle connectedInput" value="{{date | date:'yyyy-MM-dd'}}" step="1" class="inputClear" ng-if="newUser.wscieklizna">
+                    <input type="date" class="loginInputStyle connectedInput" value="{{date | date:'yyyy-MM-dd'}}" step="1" class="inputClear" ng-if="!newUser.wscieklizna" disabled>
+                </div>
+                   <div class="inputWithLabel"><span class="inputLabel">nosówka</span>
+                    <div class="customCheckboxHolder" ng-click="nosowkaCheckbox()">
+                        <div class="customCheckboxActive" ng-if="newUser.nosowka"></div>
+                        <div class="customCheckboxInActive" ng-if="!newUser.nosowka"></div>
+                    </div>
+                </div>
+                   <div class="formLine"></div>
+                <div class="inputWithLabel marginB"><span class="inputLabel borderRadiusBL">data</span>
+                    <input type="date" class="loginInputStyle connectedInput borderRadiusBR" value="{{date | date:'yyyy-MM-dd'}}" step="1" class="inputClear" ng-if="newUser.nosowka">
+                    <input type="date" class="loginInputStyle connectedInput borderRadiusBR" value="{{date | date:'yyyy-MM-dd'}}" step="1" class="inputClear" ng-if="!newUser.nosowka" disabled>
+                </div>
+                 
+                <a class="submitButton" ng-click="registerUserE4()">dalej</a>
+                <br/>
+            </form>
+        </ons-page>
+    </ons-template>
+    
+    
+          <ons-template id="register5.html">
+        <ons-page class="loginBg">
+            <ons-toolbar>
+                <div class="left">
+                    <ons-toolbar-button onclick="navi.popPage();">
+                        <ons-icon icon="ion-ios-arrow-back" fixed-width="false" style="font-size: 26px; vertical-align: -4px"></ons-icon>
+                    </ons-toolbar-button>
+                </div>
+            </ons-toolbar>
+            <form class="loginStyle">
+                <h1>ETAP 5 z 5</h1>
+                <h2>AWATAR</h2>
+                <div class="clear"></div>
+                 <div class="contenHolder">
+                <div id="avatarPreview" class="avatar" style="background-image:url('http://daredot.dev.thickmug.com{{user.image_url}}');"></div>
+
+               
+            </div>
+                  <a class="submitButton alternative" ng-click="changeAvatar()">Zmień awatar</a>
+                <a class="submitButton" ng-click="registerUserE5()">Zakończ</a>
                 <br/>
             </form>
         </ons-page>
@@ -145,9 +374,12 @@
                 <p class="recover">Podaj nazwę uzytkownika i adres e-mail powiązany z Twoim kontem.
                     <br/>Na podany adres otrzymasz przypomnienia swojego hasła.</p>
                 <br/>
-                    <div class="formIcon iconPerson">
-                        <input type="text" id="recoverUser" class="loginInputStyle firstInput" placeholder="twoja nazwa użytkownika" /></div>
-                <div class="formIcon iconMail"><input type="email" id="recoverEmail" class="loginInputStyle lastInput" placeholder="twój e-mail" /></div>
+                <div class="formIcon iconPerson">
+                    <input type="text" id="recoverUser" class="loginInputStyle firstInput" placeholder="twoja nazwa użytkownika" />
+                </div>
+                <div class="formIcon iconMail">
+                    <input type="email" id="recoverEmail" class="loginInputStyle lastInput" placeholder="twój e-mail" />
+                </div>
                 <a class="submitButton" ng-click="recoverPassword()">zresetuj hasło</a>
                 <br/>
             </form>

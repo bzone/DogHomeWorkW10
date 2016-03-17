@@ -442,15 +442,15 @@ a.submitButton.logOut {
 }
 
 .avatar {
-    width: 164px;
-    height: 164px;
+    width: 204px;
+    height: 204px;
     margin: auto;
-    border-radius: 50%;
-    border: solid 2px #CFF;
-    box-shadow: inset 0px 0px 0px 7px #E60E2A, inset 0px 0px 0px 14px rgba(0, 0, 0, 0.4);
+    border-radius: 46%;
+    box-shadow: inset 0px 0px 0px 14px #23B7DB, inset 0px 0px 0px 18px rgba(0, 0, 0, 0.2), 0px 3px 0px 0px rgb(32, 146, 171);
     background-size: cover;
     background-position: center center;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+    background-color: #FDFDFD;
 }
 
 .userEmail {
@@ -1170,4 +1170,72 @@ span.inputLabel {
     color: #8F8F98;
     padding-left: 10px;
     box-sizing: border-box;
+}
+
+.inputClear {
+    text-align: right !important;
+    border: 0px;
+    height: 20px;
+    display: block;
+    -webkit-appearance: none;
+    font-size: 17px;
+    background-color: transparent;
+    margin-right: 15px;
+    height: 56px;
+    line-height: 56px;
+    background-color: #FFF;
+    border-radius: 0px;
+    padding-right: 10px;
+    direction: rtl;
+}
+
+.customCheckboxHolder {
+    width: 60%;
+    text-align: right;
+    float: left;
+    height: 56px;
+    line-height: 56px;
+    background-color: #FFF;
+}
+.formLine {
+    width: 100%;
+    height: 1px;
+}
+
+.borderRadiusTR {
+    border-top-right-radius: 10px;
+}
+
+.borderRadiusTL {
+    border-top-left-radius: 10px;
+}
+
+.borderRadiusBR {
+    border-bottom-right-radius: 10px;
+}
+
+.borderRadiusBL {
+    border-bottom-left-radius: 10px;
+}
+
+.customCheckboxActive {
+    width: 36px;
+    height: 36px;
+    background: url(check_a.png);
+    background-size: 36px 36px;
+     float: right;
+    margin: 10px;
+}
+
+.customCheckboxInActive {
+    width: 36px;
+    height: 36px;
+    background: url(check_in.png);
+    background-size: 36px 36px;
+    float: right;
+    margin: 10px;
+}
+
+input:disabled {
+    color: #CCC;
 }

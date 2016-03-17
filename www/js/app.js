@@ -8,7 +8,28 @@
 
     module.controller('AppController', function ($scope, $projekty, $filter) {
         $scope.currentPage = "Home";
-
+        $scope.date = new Date();
+        
+        $scope.newUser={};
+        $scope.newUser.wscieklizna=false;
+        $scope.newUser.nosowka=false;
+        
+        
+        $scope.wsciekliznaCheckbox = function() {
+            if ( $scope.newUser.wscieklizna==false) {
+                 $scope.newUser.wscieklizna=true;
+            } else {
+                 $scope.newUser.wscieklizna=false;
+            }
+        }
+        
+        $scope.nosowkaCheckbox = function() {
+            if ( $scope.newUser.nosowka==false) {
+                 $scope.newUser.nosowka=true;
+            } else {
+                 $scope.newUser.nosowka=false;
+            }
+        }
 
         $scope.loguj = function (tekst) {
             window.console && console.log(tekst);
@@ -104,19 +125,31 @@
 
 
         $scope.registerUserE1 = function () {
-                navi.pushPage('register2.html', {
-                    animation: 'slide'
-                });
-            }
+            navi.pushPage('register2.html', {
+                animation: 'fade'
+            });
+        }
+
+        $scope.registerUserE2 = function () {
+            navi.pushPage('register3.html', {
+                animation: 'slide'
+            });
+        }
+
+        $scope.registerUserE3 = function () {
+            navi.pushPage('register4.html', {
+                animation: 'slide'
+            });
+        }
         
-         $scope.registerUserE2 = function () {
-                navi.pushPage('register3.html', {
-                    animation: 'slide'
-                });
-            }
-         
-         
-            //NOTE: Rejestracja uzytkownika
+         $scope.registerUserE4 = function () {
+            navi.pushPage('register5.html', {
+                animation: 'slide'
+            });
+        }
+
+
+        //NOTE: Rejestracja uzytkownika
         $scope.registerUser = function () {
             var user_email = $("#newUserEmail").val();
             var user_name = $("#newUserName").val();
