@@ -9,30 +9,61 @@
     module.controller('AppController', function ($scope, $projekty, $filter) {
         $scope.currentPage = "Home";
         $scope.date = new Date();
-        
-        $scope.newUser={};
-        $scope.newUser.wscieklizna=false;
-        $scope.newUser.nosowka=false;
-        
-        
-        $scope.wsciekliznaCheckbox = function() {
-            if ( $scope.newUser.wscieklizna==false) {
-                 $scope.newUser.wscieklizna=true;
+
+        $scope.newUser = {};
+        $scope.newUser.wscieklizna = false;
+        $scope.newUser.nosowka = false;
+
+
+        $scope.wsciekliznaCheckbox = function () {
+            if ($scope.newUser.wscieklizna == false) {
+                $scope.newUser.wscieklizna = true;
             } else {
-                 $scope.newUser.wscieklizna=false;
+                $scope.newUser.wscieklizna = false;
             }
         }
-        
-        $scope.nosowkaCheckbox = function() {
-            if ( $scope.newUser.nosowka==false) {
-                 $scope.newUser.nosowka=true;
+
+        $scope.nosowkaCheckbox = function () {
+            if ($scope.newUser.nosowka == false) {
+                $scope.newUser.nosowka = true;
             } else {
-                 $scope.newUser.nosowka=false;
+                $scope.newUser.nosowka = false;
+            }
+        }
+
+        $scope.wsciekliznaCheckbox2 = function () {
+            if ($scope.user.dog.rabies_vaccination == 0) {
+                $scope.user.dog.rabies_vaccination = 1;
+            } else {
+                $scope.user.dog.rabies_vaccination = 0;
+            }
+        }
+
+        $scope.nosowkaCheckbox2 = function () {
+            if ($scope.user.dog.distemper_vaccination == 0) {
+                $scope.user.dog.distemper_vaccination = 1;
+            } else {
+                $scope.user.dog.distemper_vaccination = 0;
             }
         }
 
         $scope.loguj = function (tekst) {
             window.console && console.log(tekst);
+        }
+
+        $scope.updateSelect = function () {
+            var masa = $scope.user.dog.weight;
+            masa = masa.substring(0, masa.length - 2);
+            console.log('masa');
+            console.log(masa);
+            var element = document.getElementById('preSetWeight');
+            element.value = masa;
+            var ster = $scope.user.dog.sterilization;
+            element = document.getElementById('preSetStery');
+            element.value = ster;
+            var chip = $scope.user.dog.chip;
+            element = document.getElementById('preSetStery');
+            element.value = chip;
         }
 
         //NOTE: Logowanie uzytkownika
@@ -57,10 +88,40 @@
                         if (respond.status == "success") {
                             currentApiKey = respond.data.api_key;
                             $scope.user = angular.fromJson(respond.data);
-                            $("#spinner").fadeOut(1000);
-                            navi.pushPage('home.html', {
-                                animation: 'slide'
+                            $scope.user.dog.age = $scope.calcAge($scope.user.dog.birth_date);
+                            var tmp = $scope.user.dog.birth_date;
+                            tmp = tmp.substring(0, tmp.length - 5);
+                            $scope.user.dog.birth = tmp;
+                            tmp = $scope.user.created_at;
+                            tmp = tmp.substring(0, tmp.length - 5);
+                            $scope.user.register = tmp;
+                            $.ajax({
+                                type: "GET",
+                                url: url + '/api/v1/courses/read',
+                                beforeSend: function () {
+                                    $("#spinner").css('display', 'block');
+                                },
+                                headers: {
+                                    "api-key": currentApiKey
+                                },
+                                data: {
+                                    base: 1
+                                },
+                                datatype: 'json',
+                                cache: false,
+                                success: function (respond) {
+                                    $("#spinner").fadeOut(1000);
+                                    $scope.userCurses = angular.fromJson(respond.data);
+                                    navi.pushPage('home.html', {
+                                        animation: 'slide'
+                                    });
+                                },
+                                error: function (respond) {
+                                    window.console && console.log('error ' + JSON.stringify(respond));
+                                    $("#spinner").fadeOut(1000);
+                                }
                             });
+
                         }
                     },
                     error: function (respond) {
@@ -141,8 +202,8 @@
                 animation: 'slide'
             });
         }
-        
-         $scope.registerUserE4 = function () {
+
+        $scope.registerUserE4 = function () {
             navi.pushPage('register5.html', {
                 animation: 'slide'
             });
@@ -189,10 +250,40 @@
                         } else if (respond.status == "success") {
                             currentApiKey = respond.data.api_key;
                             $scope.user = angular.fromJson(respond.data);
-                            $("#spinner").fadeOut(1000);
-                            navi.pushPage('home.html', {
-                                animation: 'slide'
+                            $scope.user.dog.age = $scope.calcAge($scope.user.dog.birth_date);
+                            var tmp = $scope.user.dog.birth_date;
+                            tmp = tmp.substring(0, tmp.length - 5);
+                            $scope.user.dog.birth = tmp;
+                            tmp = $scope.user.created_at;
+                            tmp = tmp.substring(0, tmp.length - 5);
+                            $scope.user.register = tmp;
+                            $.ajax({
+                                type: "GET",
+                                url: url + '/api/v1/courses/read',
+                                beforeSend: function () {
+                                    $("#spinner").css('display', 'block');
+                                },
+                                headers: {
+                                    "api-key": currentApiKey
+                                },
+                                data: {
+                                    base: 1
+                                },
+                                datatype: 'json',
+                                cache: false,
+                                success: function (respond) {
+                                    $("#spinner").fadeOut(1000);
+                                    $scope.userCurses = angular.fromJson(respond.data);
+                                    navi.pushPage('home.html', {
+                                        animation: 'slide'
+                                    });
+                                },
+                                error: function (respond) {
+                                    window.console && console.log('error ' + JSON.stringify(respond));
+                                    $("#spinner").fadeOut(1000);
+                                }
                             });
+
                         }
                     }
                 });
@@ -233,6 +324,27 @@
                 naviDash.replacePage('settings.html');
             }
         }
+
+        $scope.openYourDog = function () {
+            menu.closeMenu();
+            $scope.cardView = "szkolenie";
+            if ($scope.currentPage != 'YourDog') {
+                $scope.currentPage = 'YourDog'
+                naviDash.replacePage('yourdog.html');
+            }
+        }
+
+        $scope.calcAge = function (dateString) {
+            dateString = dateString.substring(0, dateString.length - 5);
+            var birthday = +new Date(dateString);
+            return ~~((Date.now() - birthday) / (31557600000));
+        }
+
+        $scope.cardViewChange = function (na) {
+            $scope.cardView = na;
+        }
+
+
 
         //NOTE: Zmiana avatara
         $scope.changeAvatar = function () {
@@ -286,78 +398,48 @@
         $scope.saveSettings = function () {
             var passwordOK = false;
             var sendData = false;
-            if ($scope.user.newpassword || $scope.user.newpasswordr) {
-                if ($scope.user.newpassword == $scope.user.newpasswordr) {
-                    window.console && console.log('Nowe hasło gotowe do ustawienia');
-                    passwordOK = true;
-                } else {
-                    ons.notification.alert({
-                        message: 'Hasła się nie zgadzają'
-                    });
-                }
-            }
+
             if ($scope.user.new_avatar) {
-                window.console && console.log('Nowy awatar gotowy do ustawienia');
-                var newAvatar = {
-                    'sizeInBytes': $scope.user.new_avatar_size,
-                    'mimeType': 'image/png',
-                    'name': 'avatar',
-                    'data': $scope.user.new_avatar
-                }
-            }
-            if (passwordOK && $scope.user.newpassword && $scope.user.newpasswordr && $scope.user.new_avatar) {
                 sendData = true;
                 var dataToSend = {
                     first_name: $scope.user.first_name,
                     last_name: $scope.user.last_name,
-                    username: $scope.user.username,
-                    email: $scope.user.email,
-                    facebook_id: $scope.user.facebook_id,
-                    twitter_id: $scope.user.twitter_id,
-                    password: $scope.user.newpassword,
-                    image: JSON.stringify({
+                    city: $scope.user.city,
+                    address: $scope.user.address,
+                    flat_number: $scope.user.flat_number,
+                    phone_number: $scope.user.phone_number,
+                    dog_weight: $('#preSetWeight').val() + 'kg',
+                    dog_sterilization: $('#preSetStery').val(),
+                    dog_chip: $('#preSetChip').val(),
+                    dog_rabies_vaccination: $scope.user.dog.rabies_vaccination,
+                    dog_rabies_vaccination_at: $scope.user.dog.rabies_vaccination_at,
+                    dog_distemper_vaccination: $scope.user.dog.distemper_vaccination,
+                    dog_distemper_vaccination_at: $scope.user.dog.distemper_vaccination_at,
+                    dog_description: $scope.user.dog.description,
+                    dog_image: JSON.stringify({
                         'sizeInBytes': $scope.user.new_avatar_size,
                         'mimeType': 'image/png',
                         'name': 'avatar',
                         'data': $scope.user.new_avatar
                     })
                 }
-            } else if (passwordOK && $scope.user.newpassword && $scope.user.newpasswordr && !$scope.user.new_avatar) {
+            } else {
                 sendData = true;
                 var dataToSend = {
                     first_name: $scope.user.first_name,
                     last_name: $scope.user.last_name,
-                    username: $scope.user.username,
-                    email: $scope.user.email,
-                    facebook_id: $scope.user.facebook_id,
-                    twitter_id: $scope.user.twitter_id,
-                    password: $scope.user.newpassword
-                }
-            } else if (!$scope.user.newpassword && !$scope.user.newpasswordr && $scope.user.new_avatar) {
-                sendData = true;
-                var dataToSend = {
-                    first_name: $scope.user.first_name,
-                    last_name: $scope.user.last_name,
-                    username: $scope.user.username,
-                    email: $scope.user.email,
-                    facebook_id: $scope.user.facebook_id,
-                    twitter_id: $scope.user.twitter_id,
-                    image: JSON.stringify({
-                        'sizeInBytes': $scope.user.new_avatar_size,
-                        'mimeType': 'image/png',
-                        'name': 'avatar',
-                        'data': $scope.user.new_avatar
-                    })
-                }
-            } else if (!$scope.user.newpassword && !$scope.user.newpasswordr) {
-                sendData = true;
-                var dataToSend = {
-                    first_name: $scope.user.first_name,
-                    last_name: $scope.user.last_name,
-                    username: $scope.user.username,
-                    email: $scope.user.email,
-                    facebook_id: $scope.user.facebook_id,
-                    twitter_id: $scope.user.twitter_id
+                    city: $scope.user.city,
+                    address: $scope.user.address,
+                    flat_number: $scope.user.flat_number,
+                    phone_number: $scope.user.phone_number,
+                    dog_weight: $('#preSetWeight').val() + 'kg',
+                    dog_sterilization: $('#preSetStery').val(),
+                    dog_chip: $('#preSetChip').val(),
+                    dog_rabies_vaccination: $scope.user.dog.rabies_vaccination,
+                    dog_rabies_vaccination_at: $scope.user.dog.rabies_vaccination_at,
+                    dog_distemper_vaccination: $scope.user.dog.distemper_vaccination,
+                    dog_distemper_vaccination_at: $scope.user.dog.distemper_vaccination_at,
+                    dog_description: $scope.user.dog.description
                 }
             }
 
@@ -382,6 +464,10 @@
                             ons.notification.alert({
                                 message: 'Twoje dane zostały zaktualizowane'
                             });
+                            $scope.user.dog.dog_weight = $('#preSetWeight').val() + 'kg';
+                            $scope.user.dog.dog_sterilization = $('#preSetStery').val();
+                            $scope.user.dog.dog_chip = $('#preSetChip').val();
+                            $scope.$apply();
                         } else if (respond.status == "error") {
                             window.console && console.log('error ' + respond.data);
                             $("#spinner").fadeOut(1000);

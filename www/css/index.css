@@ -17,18 +17,12 @@
  * under the License.
  */
 
-
 @font-face {
     font-family: 'linottesemibold';
     src: url('linotte-semibold-webfont.eot');
-    src: url('linotte-semibold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('linotte-semibold-webfont.woff2') format('woff2'),
-         url('linotte-semibold-webfont.woff') format('woff'),
-         url('linotte-semibold-webfont.ttf') format('truetype'),
-         url('linotte-semibold-webfont.svg#linottesemibold') format('svg');
+    src: url('linotte-semibold-webfont.eot?#iefix') format('embedded-opentype'), url('linotte-semibold-webfont.woff2') format('woff2'), url('linotte-semibold-webfont.woff') format('woff'), url('linotte-semibold-webfont.ttf') format('truetype'), url('linotte-semibold-webfont.svg#linottesemibold') format('svg');
     font-weight: normal;
     font-style: normal;
-
 }
 
 @-o-viewport {
@@ -94,10 +88,13 @@ html {
 body {
     -webkit-touch-callout: none;
     /* prevent callout to copy image, etc when tap to hold */
+    
     -webkit-text-size-adjust: none;
     /* prevent webkit from resizing text to fit */
+    
     -webkit-user-select: none;
     /* prevent copy paste, to allow, change 'none' to 'text' */
+    
     font-family: 'linottesemibold' !important;
     font-size: 12px;
     height: 100%;
@@ -109,7 +106,7 @@ body {
 }
 
 .page {
-font-family: 'linottesemibold' !important;
+    font-family: 'linottesemibold' !important;
 }
 
 h1 {
@@ -128,8 +125,6 @@ h2 {
     margin-top: 0px;
     margin-bottom: 40px;
 }
-
-
 /*NOTE Spiner */
 
 #spinnerIcon {
@@ -168,16 +163,15 @@ h2 {
     line-height: 100px;
     z-index: 9999;
 }
-
-
 /*NOTE: Login Pages */
 
 form.loginStyle {
     width: 80%;
     margin: auto;
 }
+
 input {
-  -webkit-appearance: none;
+    -webkit-appearance: none;
 }
 
 input {
@@ -205,10 +199,8 @@ input {
     border-bottom-right-radius: 10px;
 }
 
-
-
 input::-webkit-input-placeholder {
-    color: #9292A0;  
+    color: #9292A0;
 }
 
 input:-ms-input-placeholder {
@@ -234,12 +226,11 @@ input:-ms-input-placeholder {
     font-family: 'linottesemibold' !important;
     font-weight: bold;
     box-shadow: 0px 2px 0px #2092AB;
-        
 }
 
 .submitButton.alternative {
     background-color: #171D24;
-       box-shadow: 0px 2px 0px #000000;
+    box-shadow: 0px 2px 0px #000000;
 }
 
 .submitButton.white {
@@ -266,7 +257,7 @@ input:-ms-input-placeholder {
     width: 40px;
     height: 100%;
     position: absolute;
-    top:0px;
+    top: 0px;
     right: 10px;
     background-position: center center;
     background-repeat: no-repeat;
@@ -308,13 +299,11 @@ input:-ms-input-placeholder {
     margin-bottom: 40px;
 }
 
-.loginBg .page__content {
-  
-}
+.loginBg .page__content {}
 
 .page__background {
     background-color: #1F1F1F;
-      background-image: url(homebg.png) !important;
+    background-image: url(homebg.png) !important;
     background-size: cover;
     background-position: bottom center;
     position: absolute;
@@ -322,8 +311,6 @@ input:-ms-input-placeholder {
     left: 0px;
     right: 0px;
     bottom: 0px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
 
@@ -334,8 +321,6 @@ p.recover {
 .logoMargin {
     margin-top: 10px;
 }
-
-
 /* Home/dash */
 
 .page--menu-page__background {
@@ -378,13 +363,14 @@ p.recover {
     font-weight: 600;
 }
 
-.bottom-menu-list,
 .bottom-menu-item:first-child,
 .bottom-menu-item {
     border-color: #000000;
     background-color: transparent;
     background-image: none !important;
-    color: #FFF;
+    color: #000;
+    border-bottom: solid 1px #000 !Important;
+    font-family: 'linottesemibold';
 }
 
 .bottom-menu-item:active {
@@ -392,21 +378,20 @@ p.recover {
 }
 
 ons-page.ng-scope.page.page--menu-page,
-ons-page.ng-scope.page.page--menu-page .page__content {
-}
+ons-page.ng-scope.page.page--menu-page .page__content {}
 
 a.submitButton.logOut {
     width: 90%;
     margin-left: 5%;
     margin-top: 20px;
-    background-color: #E60E2A;
+    background-color: #23B7DB;
     position: absolute;
-    bottom: 25px;
+    bottom: 35px;
 }
 
 .menuIcon {
     float: left;
-    width: 34px;
+    width: 0px;
     height: 34px;
     background-color: #E60E2A;
     border-radius: 50%;
@@ -712,7 +697,7 @@ span.title {
     padding: 0 10px 0 10px;
     margin: 0 0 0 0;
     border-top: none;
-    border-bottom: 1px solid #CCC;
+    border-bottom: 1px solid #000;
     color: #000;
     background-color: transparent;
     min-height: 44px;
@@ -725,11 +710,10 @@ span.title {
 }
 
 .whiteFrame .list input {
-    text-align: right;
+    text-align: right !important;
     height: 40px;
+    width: 100%;
 }
-
-
 /* Statystykie */
 
 .badge {
@@ -757,6 +741,8 @@ span.title {
 
 ons-icon.ng-scope.ons-icon.ons-icon--ion.ion-navicon {
     width: 28px;
+    font-size: 37px !important;
+    vertical-align: -11px !important;
     background-size: contain;
     background-repeat: no-repeat;
     background-image: url('menu-icon.png');
@@ -768,7 +754,7 @@ ons-icon.ng-scope.ons-icon.ons-icon--ion.ion-navicon:before {
 
 ons-icon.ng-scope.ons-icon.ons-icon--ion.ion-ios-arrow-back {
     width: 28px;
-        font-size: 37px !important;
+    font-size: 37px !important;
     vertical-align: -11px !important;
     background-size: contain;
     background-repeat: no-repeat;
@@ -781,9 +767,11 @@ ons-icon.ng-scope.ons-icon.ons-icon--ion.ion-ios-arrow-back:before {
 
 ons-icon.ng-scope.ons-icon.ons-icon--ion.ion-grid {
     width: 28px;
+    font-size: 37px !important;
+    vertical-align: -11px !important;
     background-size: contain;
     background-repeat: no-repeat;
-    background-image: url('notification.png');
+    background-image: url('nav_icon_add.png');
     background-position: center center;
 }
 
@@ -831,8 +819,6 @@ ons-icon.ng-scope.ons-icon.ons-icon--ion.ion-grid:before {
     border: solid 8px #FFF;
     margin: auto;
 }
-
-
 /* detale zestawu */
 
 .versus {
@@ -1060,8 +1046,6 @@ span.location {
 .userInList.ranking .leftPart .avatar {
     float: left;
 }
-
-
 /* Dystans */
 
 .numberDistance {
@@ -1156,7 +1140,7 @@ span.location {
 input#newUserName {}
 
 .connectedInput {
-    width: 60%;
+    width: 60% !important;
     text-align: right;
 }
 
@@ -1197,6 +1181,7 @@ span.inputLabel {
     line-height: 56px;
     background-color: #FFF;
 }
+
 .formLine {
     width: 100%;
     height: 1px;
@@ -1223,7 +1208,7 @@ span.inputLabel {
     height: 36px;
     background: url(check_a.png);
     background-size: 36px 36px;
-     float: right;
+    float: right;
     margin: 10px;
 }
 
@@ -1238,4 +1223,196 @@ span.inputLabel {
 
 input:disabled {
     color: #CCC;
+}
+
+.page__content.ons-page-inner.page--menu-page__content {
+    background-color: #E9E9E9;
+}
+
+.page__background.page--menu-page__background {
+    background-color: #23B7DB;
+}
+
+ons-toolbar.navigation-bar.navigation-bar--transparent {
+    background-color: #23B7DB;
+}
+
+ons-list.bottom-menu-list.list.ons-list-inner {
+    background: #E9E9E9;
+}
+
+.curse {
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+}
+
+.curseImageHolder {
+    width: 100%;
+    position: relative;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    overflow: hidden;
+}
+
+.curseImageHolder img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.curseDesc {
+    background-color: #21c3e2;
+    padding: 15px;
+    color: #000;
+    font-size: 0.8em;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    position: relative;
+    padding-right: 45px;
+}
+
+.curseDesc h2 {
+    margin: 0px;
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 1.4em;
+    margin-bottom: 5px;
+}
+
+span.curseStats {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 2px''
+}
+
+.complete {
+    position: absolute;
+    background-image: url(checkbig.png);
+    width: 62px;
+    height: 62px;
+    background-size: 62px 62px;
+    right: 15px;
+    top: -31px;
+}
+
+.bgBlue {
+    background-color: #23B7DB;
+}
+
+.bgBlue .avatar {
+    width: 140px;
+    height: 140px;
+    box-shadow: inset 0px 0px 0px 8px #23B7DB, inset 0px 0px 0px 18px rgba(0, 0, 0, 0.2), 0px 2px 0px 2px rgb(32, 146, 171);
+    margin-bottom: 15px;
+}
+
+.bgBlue .userName {
+    font-size: 1.6em;
+    padding-bottom: 10px;
+    display: block;
+}
+
+.newHolder {
+    border-radius: 0px;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 0px;
+}
+
+li.list__header {
+    background-color: transparent;
+    font-size: 1.2em;
+    margin-bottom: 6px;
+    margin-top: 6px;
+    font-weight: bolder;
+}
+
+.newHolder .inputClear {
+    text-align: right !important;
+    border: 0px;
+    height: 20px;
+    display: block;
+    -webkit-appearance: none;
+    font-size: 17px;
+    background-color: transparent;
+    margin-right: 15px;
+    height: 45px;
+    line-height: 45px;
+    background-color: #FFF;
+    border-radius: 0px;
+    padding-right: 10px;
+    direction: rtl;
+    width: 100%;
+    font-family: 'linottesemibold';
+    font-size: 1em;
+}
+
+.newHolder span.inputLabel {
+    padding-left: 0px;
+    color: #000;
+    line-height: 45px;
+    height: 45px;
+}
+
+.newHolder .customCheckboxActive {
+    margin: 4px;
+}
+
+.newHolder .customCheckboxInActive {
+    margin: 4px;
+}
+
+.newHolder .customCheckboxHolder {
+    height: 45px;
+    line-height: 45px;
+}
+
+.newHolder select {
+    width: 100% !important;
+    padding-right: 0px !Important;
+}
+
+.newHolder input.loginInputStyle.connectedInput {
+    padding-right: 0px;
+}
+
+.nonActiveFields input,
+.nonActiveFields textarea,
+.nonActiveFields select {
+    pointer-events: none;
+}
+
+.tabInActive,
+.tabActive {
+    width: 50%;
+    height: 50px;
+    float: left;
+    text-align: center;
+    line-height: 48px;
+    background-color: #171E24;
+}
+
+.tabActive {
+    background-color: #29B6D8;
+}
+
+.dogName {
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 2.5em;
+    margin-top: -27px;
+    color: #23B7DB;
+}
+
+.addInfo {
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 0.8em;
 }
