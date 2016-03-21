@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="lib/angular/angular-csp.css" />
     <!-- --------------- App init --------------- -->
     <script src="js/app.js"></script>
-    <title>DareDot</title>
+    <title>Dog Home Work</title>
 </head>
 
 <body ng-controller="AppController">
@@ -30,6 +30,8 @@
     <script src="cordova.js"></script>
     <script src="js/jquery.js"></script>
     <script src="js/jquery.easypiechart.js"></script>
+    <link href="//vjs.zencdn.net/5.0/video-js.min.css" rel="stylesheet">
+    <script src="//vjs.zencdn.net/5.0/video.min.js"></script>
     <script src="scripts/index.js"></script>
 
     <div class="spinner" id="spinner" style="display:none;">
@@ -40,7 +42,7 @@
 
 
     <ons-navigator var="navi">
-        <ons-page style="background-color:#E60E2A !Important;" class="loginBg">
+        <ons-page class="loginBg">
             <form class="loginStyle">
                 <div class="bigLogo"></div>
                 <div class="formIcon iconMail">
@@ -74,13 +76,13 @@
                 <h2>DANE DO LOGOWANIA</h2>
                 <div class="clear"></div>
                 <div class="formIcon iconMail">
-                    <input type="email" id="newUserEmail" class="loginInputStyle firstInput" placeholder="e-mail" />
+                    <input type="email" id="newUserEmail" class="loginInputStyle firstInput" placeholder="e-mail" ng-model="tmpUser.email" ng-init="tmpUser.email" />
                 </div>
                 <div class="formIcon iconPass">
-                    <input type="password" id="newUserPassword" class="loginInputStyle" placeholder="hasło" />
+                    <input type="password" id="newUserPassword" class="loginInputStyle" placeholder="hasło" ng-model="tmpUser.password" ng-init="tmpUser.password" />
                 </div>
                 <div class="formIcon iconPass">
-                    <input type="password" id="newUserPasswordR" class="loginInputStyle lastInput" placeholder="powtórz hasło" />
+                    <input type="password" id="newUserPasswordR" class="loginInputStyle lastInput" placeholder="powtórz hasło" ng-model="tmpUser.password2" ng-init="tmpUser.password2" />
                 </div>
                 <a class="submitButton" ng-click="registerUserE1()">dalej</a>
                 <br/>
@@ -102,19 +104,22 @@
                 <h2>DANE WŁAŚCICIELA</h2>
                 <div class="clear"></div>
                 <div class="formIcon iconPerson">
-                    <input type="text" id="newUserName" class="loginInputStyle firstInput" placeholder="imię i nazwisko" />
+                    <input type="text" id="newUserName" class="loginInputStyle firstInput" placeholder="imię" ng-model="tmpUser.first_name" ng-init="tmpUser.first_name" />
+                </div>
+                <div class="formIcon iconPerson">
+                    <input type="text" id="newUserLastName" class="loginInputStyle" placeholder="nazwisko" ng-model="tmpUser.last_name" ng-init="tmpUser.last_name" />
                 </div>
                 <div class="formIcon iconLocation">
-                    <input type="text" id="newUserLocation1" class="loginInputStyle" placeholder="miesjscowość" />
+                    <input type="text" id="newUserLocation1" class="loginInputStyle" placeholder="miesjscowość" ng-model="tmpUser.city" ng-init="tmpUser.city" />
                 </div>
                 <div class="formIcon iconLocation">
-                    <input type="text" id="newUserLocation2" class="loginInputStyle" placeholder="ulica" />
+                    <input type="text" id="newUserLocation2" class="loginInputStyle" placeholder="ulica" ng-model="tmpUser.address" ng-init="tmpUser.address" />
                 </div>
                 <div class="formIcon iconLocation">
-                    <input type="text" id="newUserLocation3" class="loginInputStyle" placeholder="nr domu/nr lokalu" />
+                    <input type="text" id="newUserLocation3" class="loginInputStyle" placeholder="nr domu/nr lokalu" ng-model="tmpUser.flat_number" ng-init="tmpUser.flat_number" />
                 </div>
                 <div class="formIcon iconPhone">
-                    <input type="tel" id="newUserPhone" class="loginInputStyle lastInput" placeholder="telefon kontaktowy" />
+                    <input type="tel" id="newUserPhone" class="loginInputStyle lastInput" placeholder="telefon kontaktowy" ng-model="tmpUser.phone_number" ng-init="tmpUser.phone_number" />
                 </div>
                 <a class="submitButton" ng-click="registerUserE2()">dalej</a>
                 <br/>
@@ -136,150 +141,150 @@
                 <h2>INFORMACJE O PSIE</h2>
                 <div class="clear"></div>
                 <div class="inputWithLabel"><span class="inputLabel borderRadiusTL">imię</span>
-                    <input type="text" id="newUserDogName" class="loginInputStyle connectedInput borderRadiusTR" />
+                    <input type="text" id="newUserDogName" class="loginInputStyle connectedInput borderRadiusTR" ng-model="tmpUser.dog_name" ng-init="tmpUser.dog_name" />
                 </div>
                 <div class="inputWithLabel"><span class="inputLabel">rasa</span>
-                    <input type="text" id="newUserDogRace" class="loginInputStyle connectedInput" />
+                    <input type="text" id="newUserDogRace" class="loginInputStyle connectedInput" ng-model="tmpUser.dog_breed" ng-init="tmpUser.dog_breed" />
                 </div>
                 <div class="inputWithLabel"><span class="inputLabel">płeć</span>
-                    <select class="inputClear loginInputStyle connectedInput" dir="rtl">
+                    <select class="inputClear loginInputStyle connectedInput" dir="rtl" ng-model="tmpUser.dog_sex" ng-init="tmpUser.dog_sex">
                         <option value="suka">suka</option>
                         <option value="pies">pies</option>
                     </select>
                 </div>
                 <div class="formLine"></div>
                 <div class="inputWithLabel"><span class="inputLabel">data urodzenia</span>
-                    <input type="date" class="loginInputStyle connectedInput" value="{{date | date:'yyyy-MM-dd'}}" step="1" class="inputClear">
+                    <input type="text" class="loginInputStyle connectedInput" value="{{date | date:'yyyy-MM-dd'}}" step="1" class="inputClear" ng-model="tmpUser.dog_birth_date" ng-init="tmpUser.dog_birth_date">
                 </div>
                 <div class="inputWithLabel"><span class="inputLabel">waga</span>
-                    <select class="inputClear loginInputStyle connectedInput" dir="rtl">
-                        <option value="1">1kg</option>
-                        <option value="2">2kg</option>
-                        <option value="3">3kg</option>
-                        <option value="4">4kg</option>
-                        <option value="5">5kg</option>
-                        <option value="6">6kg</option>
-                        <option value="7">7kg</option>
-                        <option value="8">8kg</option>
-                        <option value="9">9kg</option>
-                        <option value="10">10kg</option>
-                        <option value="11">11kg</option>
-                        <option value="12">12kg</option>
-                        <option value="13">13kg</option>
-                        <option value="14">14kg</option>
-                        <option value="15">15kg</option>
-                        <option value="16">16kg</option>
-                        <option value="17">17kg</option>
-                        <option value="18">18kg</option>
-                        <option value="19">19kg</option>
-                        <option value="20">20kg</option>
-                        <option value="21">21kg</option>
-                        <option value="22">22kg</option>
-                        <option value="23">23kg</option>
-                        <option value="24">24kg</option>
-                        <option value="25">25kg</option>
-                        <option value="26">26kg</option>
-                        <option value="27">27kg</option>
-                        <option value="28">28kg</option>
-                        <option value="29">29kg</option>
-                        <option value="30">30kg</option>
-                        <option value="31">31kg</option>
-                        <option value="32">32kg</option>
-                        <option value="33">33kg</option>
-                        <option value="34">34kg</option>
-                        <option value="35">35kg</option>
-                        <option value="36">36kg</option>
-                        <option value="37">37kg</option>
-                        <option value="38">38kg</option>
-                        <option value="39">39kg</option>
-                        <option value="40">40kg</option>
-                        <option value="41">41kg</option>
-                        <option value="42">42kg</option>
-                        <option value="43">43kg</option>
-                        <option value="44">44kg</option>
-                        <option value="45">45kg</option>
-                        <option value="46">46kg</option>
-                        <option value="47">47kg</option>
-                        <option value="48">48kg</option>
-                        <option value="49">49kg</option>
-                        <option value="50">50kg</option>
-                        <option value="51">51kg</option>
-                        <option value="52">52kg</option>
-                        <option value="53">53kg</option>
-                        <option value="54">54kg</option>
-                        <option value="55">55kg</option>
-                        <option value="56">56kg</option>
-                        <option value="57">57kg</option>
-                        <option value="58">58kg</option>
-                        <option value="59">59kg</option>
-                        <option value="60">60kg</option>
-                        <option value="61">61kg</option>
-                        <option value="62">62kg</option>
-                        <option value="63">63kg</option>
-                        <option value="64">64kg</option>
-                        <option value="65">65kg</option>
-                        <option value="66">66kg</option>
-                        <option value="67">67kg</option>
-                        <option value="68">68kg</option>
-                        <option value="69">69kg</option>
-                        <option value="70">70kg</option>
-                        <option value="71">71kg</option>
-                        <option value="72">72kg</option>
-                        <option value="73">73kg</option>
-                        <option value="74">74kg</option>
-                        <option value="75">75kg</option>
-                        <option value="76">76kg</option>
-                        <option value="77">77kg</option>
-                        <option value="78">78kg</option>
-                        <option value="79">79kg</option>
-                        <option value="80">80kg</option>
-                        <option value="81">81kg</option>
-                        <option value="82">82kg</option>
-                        <option value="83">83kg</option>
-                        <option value="84">84kg</option>
-                        <option value="85">85kg</option>
-                        <option value="86">86kg</option>
-                        <option value="87">87kg</option>
-                        <option value="88">88kg</option>
-                        <option value="89">89kg</option>
-                        <option value="90">90kg</option>
-                        <option value="91">91kg</option>
-                        <option value="92">92kg</option>
-                        <option value="93">93kg</option>
-                        <option value="94">94kg</option>
-                        <option value="95">95kg</option>
-                        <option value="96">96kg</option>
-                        <option value="97">97kg</option>
-                        <option value="98">98kg</option>
-                        <option value="99">99kg</option>
-                        <option value="100">100kg</option>
-                        <option value="101">101kg</option>
-                        <option value="102">102kg</option>
-                        <option value="103">103kg</option>
-                        <option value="104">104kg</option>
-                        <option value="105">105kg</option>
-                        <option value="106">106kg</option>
-                        <option value="107">107kg</option>
-                        <option value="108">108kg</option>
-                        <option value="109">109kg</option>
-                        <option value="110">110kg</option>
-                        <option value="111">111kg</option>
-                        <option value="112">112kg</option>
-                        <option value="113">113kg</option>
-                        <option value="114">114kg</option>
-                        <option value="115">115kg</option>
+                    <select class="inputClear loginInputStyle connectedInput" dir="rtl" ng-model="tmpUser.dog_weight" ng-init="tmpUser.dog_weight">
+                        <option value="1kg">1kg</option>
+                        <option value="2kg">2kg</option>
+                        <option value="3kg">3kg</option>
+                        <option value="4kg">4kg</option>
+                        <option value="5kg">5kg</option>
+                        <option value="6kg">6kg</option>
+                        <option value="7kg">7kg</option>
+                        <option value="8kg">8kg</option>
+                        <option value="9kg">9kg</option>
+                        <option value="10kg">10kg</option>
+                        <option value="11kg">11kg</option>
+                        <option value="12kg">12kg</option>
+                        <option value="13kg">13kg</option>
+                        <option value="14kg">14kg</option>
+                        <option value="15kg">15kg</option>
+                        <option value="16kg">16kg</option>
+                        <option value="17kg">17kg</option>
+                        <option value="18kg">18kg</option>
+                        <option value="19kg">19kg</option>
+                        <option value="20kg">20kg</option>
+                        <option value="21kg">21kg</option>
+                        <option value="22kg">22kg</option>
+                        <option value="23kg">23kg</option>
+                        <option value="24kg">24kg</option>
+                        <option value="25kg">25kg</option>
+                        <option value="26kg">26kg</option>
+                        <option value="27kg">27kg</option>
+                        <option value="28kg">28kg</option>
+                        <option value="29kg">29kg</option>
+                        <option value="30kg">30kg</option>
+                        <option value="31kg">31kg</option>
+                        <option value="32kg">32kg</option>
+                        <option value="33kg">33kg</option>
+                        <option value="34kg">34kg</option>
+                        <option value="35kg">35kg</option>
+                        <option value="36kg">36kg</option>
+                        <option value="37kg">37kg</option>
+                        <option value="38kg">38kg</option>
+                        <option value="39kg">39kg</option>
+                        <option value="40kg">40kg</option>
+                        <option value="41kg">41kg</option>
+                        <option value="42kg">42kg</option>
+                        <option value="43kg">43kg</option>
+                        <option value="44kg">44kg</option>
+                        <option value="45kg">45kg</option>
+                        <option value="46kg">46kg</option>
+                        <option value="47kg">47kg</option>
+                        <option value="48kg">48kg</option>
+                        <option value="49kg">49kg</option>
+                        <option value="50kg">50kg</option>
+                        <option value="51kg">51kg</option>
+                        <option value="52kg">52kg</option>
+                        <option value="53kg">53kg</option>
+                        <option value="54kg">54kg</option>
+                        <option value="55kg">55kg</option>
+                        <option value="56kg">56kg</option>
+                        <option value="57kg">57kg</option>
+                        <option value="58kg">58kg</option>
+                        <option value="59kg">59kg</option>
+                        <option value="60kg">60kg</option>
+                        <option value="61kg">61kg</option>
+                        <option value="62kg">62kg</option>
+                        <option value="63kg">63kg</option>
+                        <option value="64kg">64kg</option>
+                        <option value="65kg">65kg</option>
+                        <option value="66kg">66kg</option>
+                        <option value="67kg">67kg</option>
+                        <option value="68kg">68kg</option>
+                        <option value="69kg">69kg</option>
+                        <option value="70kg">70kg</option>
+                        <option value="71kg">71kg</option>
+                        <option value="72kg">72kg</option>
+                        <option value="73kg">73kg</option>
+                        <option value="74kg">74kg</option>
+                        <option value="75kg">75kg</option>
+                        <option value="76kg">76kg</option>
+                        <option value="77kg">77kg</option>
+                        <option value="78kg">78kg</option>
+                        <option value="79kg">79kg</option>
+                        <option value="80kg">80kg</option>
+                        <option value="81kg">81kg</option>
+                        <option value="82kg">82kg</option>
+                        <option value="83kg">83kg</option>
+                        <option value="84kg">84kg</option>
+                        <option value="85kg">85kg</option>
+                        <option value="86kg">86kg</option>
+                        <option value="87kg">87kg</option>
+                        <option value="88kg">88kg</option>
+                        <option value="89kg">89kg</option>
+                        <option value="90kg">90kg</option>
+                        <option value="91kg">91kg</option>
+                        <option value="92kg">92kg</option>
+                        <option value="93kg">93kg</option>
+                        <option value="94kg">94kg</option>
+                        <option value="95kg">95kg</option>
+                        <option value="96kg">96kg</option>
+                        <option value="97kg">97kg</option>
+                        <option value="98kg">98kg</option>
+                        <option value="99kg">99kg</option>
+                        <option value="100kg">100kg</option>
+                        <option value="101kg">101kg</option>
+                        <option value="102kg">102kg</option>
+                        <option value="103kg">103kg</option>
+                        <option value="104kg">104kg</option>
+                        <option value="105kg">105kg</option>
+                        <option value="106kg">106kg</option>
+                        <option value="107kg">107kg</option>
+                        <option value="108kg">108kg</option>
+                        <option value="109kg">109kg</option>
+                        <option value="110kg">110kg</option>
+                        <option value="111kg">111kg</option>
+                        <option value="112kg">112kg</option>
+                        <option value="113kg">113kg</option>
+                        <option value="114kg">114kg</option>
+                        <option value="115kg">115kg</option>
                     </select>
                 </div>
                 <div class="formLine"></div>
                 <div class="inputWithLabel"><span class="inputLabel">sterylizacja</span>
-                    <select class="inputClear loginInputStyle connectedInput" dir="rtl">
+                    <select class="inputClear loginInputStyle connectedInput" dir="rtl" ng-model="tmpUser.dog_sterilization" ng-init="tmpUser.dog_sterilization">
                         <option value="nie">nie</option>
                         <option value="tak">tak</option>
                     </select>
                 </div>
                 <div class="formLine"></div>
                 <div class="inputWithLabel marginB"><span class="inputLabel borderRadiusBL">chip</span>
-                    <select class="inputClear loginInputStyle connectedInput borderRadiusBR" dir="rtl">
+                    <select class="inputClear loginInputStyle connectedInput borderRadiusBR" dir="rtl" ng-model="tmpUser.dog_chip" ng-init="tmpUser.dog_chip">
                         <option value="nie">nie</option>
                         <option value="tak">tak</option>
                     </select>
@@ -312,8 +317,8 @@
                 </div>
                 <div class="formLine"></div>
                 <div class="inputWithLabel"><span class="inputLabel">data</span>
-                    <input type="text" class="loginInputStyle connectedInput" value="{{date | date:'yyyy-MM-dd'}}" step="1" class="inputClear" ng-if="newUser.wscieklizna">
-                    <input type="text" class="loginInputStyle connectedInput" value="{{date | date:'yyyy-MM-dd'}}" step="1" class="inputClear" ng-if="!newUser.wscieklizna" disabled>
+                    <input type="text" class="loginInputStyle connectedInput" value="{{date | date:'yyyy-MM-dd'}}" step="1" class="inputClear" ng-model="tmpUser.dog_rabies_vaccination_at" ng-init="tmpUser.dog_rabies_vaccination_at" ng-if="newUser.wscieklizna">
+                    <input type="text" class="loginInputStyle connectedInput" value="{{date | date:'yyyy-MM-dd'}}" step="1" class="inputClear" ng-model="tmpUser.dog_rabies_vaccination_at" ng-init="tmpUser.dog_rabies_vaccination_at" ng-if="!newUser.wscieklizna" disabled>
                 </div>
                 <div class="inputWithLabel"><span class="inputLabel">nosówka</span>
                     <div class="customCheckboxHolder" ng-click="nosowkaCheckbox()">
@@ -323,8 +328,8 @@
                 </div>
                 <div class="formLine"></div>
                 <div class="inputWithLabel marginB"><span class="inputLabel borderRadiusBL">data</span>
-                    <input type="date" class="loginInputStyle connectedInput borderRadiusBR" value="{{date | date:'yyyy-MM-dd'}}" step="1" class="inputClear" ng-if="newUser.nosowka">
-                    <input type="date" class="loginInputStyle connectedInput borderRadiusBR" value="{{date | date:'yyyy-MM-dd'}}" step="1" class="inputClear" ng-if="!newUser.nosowka" disabled>
+                    <input type="text" class="loginInputStyle connectedInput borderRadiusBR" value="{{date | date:'yyyy-MM-dd'}}" step="1" class="inputClear" ng-if="newUser.nosowka" ng-model="tmpUser.dog_distemper_vaccination_at" ng-init="tmpUser.dog_distemper_vaccination_at">
+                    <input type="text" class="loginInputStyle connectedInput borderRadiusBR" value="{{date | date:'yyyy-MM-dd'}}" step="1" class="inputClear" ng-if="!newUser.nosowka" ng-model="tmpUser.dog_distemper_vaccination_at" ng-init="tmpUser.dog_distemper_vaccination_at" disabled>
                 </div>
 
                 <a class="submitButton" ng-click="registerUserE4()">dalej</a>
@@ -353,7 +358,7 @@
 
                 </div>
                 <a class="submitButton alternative" ng-click="changeAvatar()">Zmień awatar</a>
-                <a class="submitButton" ng-click="registerUserE5()">Zakończ</a>
+                <a class="submitButton" ng-click="registerUser()">Zakończ</a>
                 <br/>
             </form>
         </ons-page>
@@ -453,11 +458,11 @@
                     <div class="menuIcon yourQuests"></div> Karta Twojego psa
                 </ons-list-item>
 
-                <ons-list-item class="bottom-menu-item" ng-click="openNewQuests()">
+                <ons-list-item class="bottom-menu-item" ng-click="openFriendsDogs()">
                     <div class="menuIcon newQuest"></div> Psy Twoich znajomych
                 </ons-list-item>
 
-                <ons-list-item class="bottom-menu-item" ng-click="openStats()">
+                <ons-list-item class="bottom-menu-item" ng-click="openStoper()">
                     <div class="menuIcon stats"></div> Stoper
                 </ons-list-item>
 
@@ -469,6 +474,188 @@
         </ons-page>
     </ons-template>
 
+
+    <!-- NOTE:Stoper -->
+    <ons-template id="friends.html">
+        <ons-page>
+            <ons-toolbar>
+                <div class="left">
+                    <ons-toolbar-button ng-click="menu.toggleMenu()">
+                        <ons-icon icon="ion-navicon" size="28px" fixed-width="false"></ons-icon>
+                    </ons-toolbar-button>
+                </div>
+                <div class="center">PSY ZNAJMOYCH</div>
+                <div class="right">
+                    <ons-toolbar-button ng-click="addFriend()">
+                        <ons-icon icon="ion-grid" size="28px" fixed-width="false"></ons-icon>
+                    </ons-toolbar-button>
+                </div>
+            </ons-toolbar>
+            <div class="contenHolder whiteFrame newHolder" style="min-height:100vh; margin-top:5px; padding-top:0px;">
+
+                <div class="friend" ng-repeat="friendc in friends" ng-click="dogDetails(friendc.friend.id)">
+                    <div class="arrow"></div>
+                    <div class="avatar mini" style="background-image:url('http://doghomework.dev.thickmug.com{{friendc.friend.dog.image_url}}');"></div>
+                    <span class="dogNameSmall">{{friendc.friend.dog.name}}</span>
+                    <span class="addInfoSmall">{{friendc.friend.first_name}} {{friendc.friend.last_name}}<br>{{friendc.friend.dog.breed}}<br>LAT {{friendc.friend.dog.age}} | {{friendc.friend.dog.sex | uppercase}} | {{friendc.friend.dog.weight | uppercase}}</span>
+                </div>
+
+            </div>
+        </ons-page>
+    </ons-template>
+
+    <!-- NOTE:Stoper -->
+    <ons-template id="stoper.html">
+        <ons-page>
+            <ons-toolbar>
+                <div class="left">
+                    <ons-toolbar-button ng-click="menu.toggleMenu()">
+                        <ons-icon icon="ion-navicon" size="28px" fixed-width="false"></ons-icon>
+                    </ons-toolbar-button>
+                </div>
+                <div class="center">STOPER</div>
+                <div class="right">
+                    <ons-toolbar-button ng-click="resetStoper()">
+                        <ons-icon icon="ion-ios-refresh" size="28px" fixed-width="false"></ons-icon>
+                    </ons-toolbar-button>
+                </div>
+            </ons-toolbar>
+            <div class="contenHolder">
+                <br>
+                <br>
+                <div class="dogName" style="font-size:4em;"><span ng-if="stoper.min<10">0</span>{{stoper.min}}:<span ng-if="stoper.sec<10">0</span>{{stoper.sec}},<span ng-if="stoper.tys<10">0</span>{{stoper.tys}}</div>
+                <div class="addInfo">OBECNA RUNDA: <span ng-if="stoper.rmin<10">0</span>{{stoper.rmin}}:<span ng-if="stoper.rsec<10">0</span>{{stoper.rsec}},<span ng-if="stoper.rtys<10">0</span>{{stoper.rtys}}</div>
+                <br>
+                <br>
+                <a class="submitButton" ng-click="startStoper()" ng-if="stoper.action=='stop'">START</a>
+                <a class="submitButton alternative" ng-click="stopStoper()" ng-if="stoper.action=='start'">STOP</a>
+                <a class="submitButton" ng-if="stoper.action=='stop'" style="opacity:0.5;">RUNDA</a>
+                <a class="submitButton" ng-click="rundaStoper()" ng-if="stoper.action=='start'">RUNDA</a>
+            </div>
+            <div class="contenHolder whiteFrame newHolder" style="min-height:50vh;">
+                <ul class="list">
+                    <li class="list__header">
+                        rundy
+                    </li>
+                    <li class="list__item" ng-repeat="runda in stoper.rounds | orderBy:'-id'">
+                        <ons-row align="center" class="row ons-row-inner row-center">
+                            <ons-col class="col ons-col-inner">Runda {{runda.id}}</ons-col>
+                            <ons-col class="col ons-col-inner text-right">{{runda.czas}}</ons-col>
+                        </ons-row>
+                    </li>
+                </ul>
+            </div>
+        </ons-page>
+    </ons-template>
+
+    <ons-template id="cursedetails.html">
+        <ons-page>
+            <ons-toolbar>
+                <div class="left">
+                    <ons-toolbar-button ng-click="naviDash.popPage()">
+                        <ons-icon icon="ion-ios-arrow-back" size="28px" fixed-width="false"></ons-icon>
+                    </ons-toolbar-button>
+                </div>
+                <div class="center">SZKOLENIE</div>
+            </ons-toolbar>
+            <div class="contenHolder">
+                <br>
+                <br>
+                <div class="dogName" style="font-size:1.5em;">{{curseInfo.name}}</div>
+            </div>
+            <div class="blueHolder">
+                {{curseInfo.description}}
+            </div>
+            <div class="contenHolder whiteFrame newHolder" style="min-height:50vh; margin-top:0px; padding-top:0px;">
+
+                <div class="phase" ng-repeat="faza in curseInfo.phases">
+                    <div class="movie" ng-click="showMovie($index)">
+                        <div class="playIcon"></div>
+                        <span class="etapNumber">ETAP {{$index+1}}</span>
+                        <div class="etapDesc">{{faza.name}}</div>
+                    </div>
+                    <div class="days" ng-click="showDays($index)">
+                        <div class="arrow"></div>
+                        <span class="daysHeader">UKOŃCZONO</span>
+                        <br>
+                        <div class="daysNumber">{{faza.done}}/{{faza.number_of_days}} dni</div>
+                    </div>
+                </div>
+            </div>
+        </ons-page>
+    </ons-template>
+
+
+    <ons-template id="cursedetailsphase.html">
+        <ons-page>
+            <ons-toolbar>
+                <div class="left">
+                    <ons-toolbar-button ng-click="naviDash.popPage()">
+                        <ons-icon icon="ion-ios-arrow-back" size="28px" fixed-width="false"></ons-icon>
+                    </ons-toolbar-button>
+                </div>
+                <div class="center">SZKOLENIE</div>
+            </ons-toolbar>
+            <div class="contenHolder">
+                <br>
+                <br>
+                <div class="dogName" style="font-size:1.5em;">{{curseInfo.name}} - ETAP {{etap+1}}</div>
+            </div>
+            <div class="blueHolder">
+                {{curseInfo.phases[etap].days_info}}
+            </div>
+            <div class="contenHolder whiteFrame newHolder" style="min-height:70vh; margin-top:0px; padding-top:0px;">
+
+                <ul class="list">
+                    <li class="list__item" ng-repeat="dzien in curseInfo.phases[etap].days">
+                        <div class="inputWithLabel"><span class="inputLabel"> Dzień {{$index+1}}</span>
+                            <div class="customCheckboxHolder">
+                                <div class="customCheckboxActive" ng-if="dzien==1" ng-click="setDay(curseInfo.phases[etap].id,$index+1,0)"></div>
+                                <div class="customCheckboxInActive" ng-if="dzien==0" ng-click="setDay(curseInfo.phases[etap].id,$index+1,1)"></div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </ons-page>
+    </ons-template>
+    <ons-template id="cursedetailsmovie.html">
+
+        <ons-page>
+            <ons-toolbar>
+                <div class="left">
+                    <ons-toolbar-button ng-click="naviDash.popPage()">
+                        <ons-icon icon="ion-ios-arrow-back" size="28px" fixed-width="false"></ons-icon>
+                    </ons-toolbar-button>
+                </div>
+                <div class="center">SZKOLENIE</div>
+            </ons-toolbar>
+            <div style="background-color:#FFF; min-height:95vh; margin-top:5px;">
+                <br>
+                <br>
+                <br>
+                <video id="really-cool-video" class="video-js vjs-default-skin" controls preload="auto" width="100%" height="400" data-setup='{}'>
+                    <source ng-src="http://doghomework.dev.thickmug.com/movies/patrz/pies_patrz_etap1.mp4" type="video/mp4" ng-if="curseInfo.phases[etap].movie_url=='patrz/pies-patrz-etap1.mov'">
+                    <source ng-src="http://doghomework.dev.thickmug.com/movies/patrz/pies_patrz_etap2.mp4" type="video/mp4" ng-if="curseInfo.phases[etap].movie_url=='patrz/pies-patrz-etap2.mov'">
+                    <source ng-src="http://doghomework.dev.thickmug.com/movies/lezec/pies_lezec_etap1.mp4" type="video/mp4" ng-if="curseInfo.phases[etap].movie_url=='lezec/pies-lezec-etap1.mov'">
+                    <source ng-src="http://doghomework.dev.thickmug.com/movies/lezec/pies_lezec_etap4.mp4" type="video/mp4" ng-if="curseInfo.phases[etap].movie_url=='lezec/pies-lezec-etap4.mov'">
+                    <source ng-src="http://doghomework.dev.thickmug.com/movies/lezec/pies_lezec_etap5.mp4" type="video/mp4" ng-if="curseInfo.phases[etap].movie_url=='lezec/pies-lezec-etap5.mov'">
+                    <source ng-src="http://doghomework.dev.thickmug.com/movies/lezec/pies_lezec_etap6.mp4" type="video/mp4" ng-if="curseInfo.phases[etap].movie_url=='lezec/pies-lezec-etap6.mov'">
+                    <source ng-src="http://doghomework.dev.thickmug.com/movies/pusc/pies_pusc_etap1.mp4" type="video/mp4" ng-if="curseInfo.phases[etap].movie_url=='oddaj/pies-pusc-etap1.mov'">
+                    <source ng-src="http://doghomework.dev.thickmug.com/movies/pusc/pies_pusc_etap2.mp4" type="video/mp4" ng-if="curseInfo.phases[etap].movie_url=='oddaj/pies-pusc-etap2.mov'">
+                    <source ng-src="http://doghomework.dev.thickmug.com/movies/poczekaj/pies_poczekaj_etap1.mp4" type="video/mp4" ng-if="curseInfo.phases[etap].movie_url=='poczekaj/pies-poczekaj-etap1.mov'">
+                    <source ng-src="http://doghomework.dev.thickmug.com/movies/poczekaj/pies_poczekaj_etap2.mp4" type="video/mp4" ng-if="curseInfo.phases[etap].movie_url=='poczekaj/pies-poczekaj-etap2.mov'">
+                    <p class="vjs-no-js">
+                        To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                    </p>
+                </video>
+                <div class="movieInfo">
+                    {{curseInfo.phases[etap].info}}
+                </div>
+            </div>
+        </ons-page>
+    </ons-template>
 
     <ons-template id="homedash.html">
         <ons-page>
@@ -787,7 +974,7 @@
                         opis behawiorystyczny
                     </li>
                     <li class="list__item">
-                        <textarea class="inputClear" style="text-align:left !important;
+                        <textarea class="inputClear" style="resize: none; direction: ltr; text-align:left !important;
     line-height:20px;" ng-model="user.dog.description" ng-init="user.dog.description"></textarea>
                         <div class="clear"></div>
                     </li>
@@ -1110,7 +1297,7 @@
                     </li>
                     <li class="list__item">
                         <textarea class="inputClear" style="text-align:left !important;
-    line-height:20px;" ng-model="user.dog.description" ng-init="user.dog.description"></textarea>
+    line-height:20px; resize: none; direction: ltr;" ng-model="user.dog.description" ng-init="user.dog.description"></textarea>
                         <div class="clear"></div>
                     </li>
                 </ul>
@@ -1118,8 +1305,324 @@
             <div class="clear"></div>
         </ons-page>
     </ons-template>
+    <ons-template id="frienddog.html">
+        <ons-page>
+            <ons-toolbar>
+                <div class="left">
+                    <ons-toolbar-button ng-click="naviDash.popPage()">
+                        <ons-icon icon="ion-ios-arrow-back" size="28px" fixed-width="false"></ons-icon>
+                    </ons-toolbar-button>
+                </div>
+                <div class="center">KARTA PSA</div>
+                <div class="right">
 
+                </div>
+            </ons-toolbar>
 
+            <div class="contenHolder">
+                <div id="avatarPreview" class="avatar" style="background-image:url('http://doghomework.dev.thickmug.com{{dogInfo.dog.image_url}}');"></div>
+                <div class="dogName">{{dogInfo.dog.name}}</div>
+                <div class="addInfo">RASA: {{dogInfo.dog.breed}}
+                    <br>WŁAŚCICIEL {{dogInfo.first_name}} {{dogInfo.last_name}}</div>
+
+            </div>
+            <div class="clear"></div>
+            <div class="tabs">
+                <div class="tabActive" ng-if="cardView=='szkolenie'" ng-click="cardViewChange('szkolenie')">SZKOLENIE</div>
+                <div class="tabInActive" ng-if="cardView=='szkolenie'" ng-click="cardViewChange('zdrowie')">ZDROWIE</div>
+                <div class="tabInActive" ng-if="cardView=='zdrowie'" ng-click="cardViewChange('szkolenie')">SZKOLENIE</div>
+                <div class="tabActive" ng-if="cardView=='zdrowie'" ng-click="cardViewChange('zdrowie')">ZDROWIE</div>
+            </div>
+            <div class="contenHolder whiteFrame newHolder nonActiveFields" ng-init="updateSelect()" ng-if="cardView=='szkolenie'">
+                <ul class="list">
+                    <li class="list__header">
+                        skończone szkolenia
+                    </li>
+
+                    <li class="list__header" style="margin-top:20px;">
+                        statystyki
+                    </li>
+                    <li class="list__item">
+                        <ons-row align="center" class="row ons-row-inner row-center">
+                            <ons-col class="col ons-col-inner">podstawowe szkolenia</ons-col>
+                            <ons-col class="col ons-col-inner">
+                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="miasto" value="{{dogInfo.dog.stats.percentage_of_completion_base_courses}}">
+                            </ons-col>
+                        </ons-row>
+                    </li>
+                    <li class="list__item">
+                        <ons-row align="center" class="row ons-row-inner row-center">
+                            <ons-col class="col ons-col-inner">ukończone zestawy</ons-col>
+                            <ons-col class="col ons-col-inner">
+                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="miasto" value="{{dogInfo.dog.stats.number_of_finished_courses}}">
+                            </ons-col>
+                        </ons-row>
+                    </li>
+                    <li class="list__item">
+                        <ons-row align="center" class="row ons-row-inner row-center">
+                            <ons-col class="col ons-col-inner">ilość dni na szkoleniach</ons-col>
+                            <ons-col class="col ons-col-inner">
+                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="0" value="{{dogInfo.dog.stats.days}}">
+                            </ons-col>
+                        </ons-row>
+                    </li>
+                    <li class="list__item">
+                        <ons-row align="center" class="row ons-row-inner row-center">
+                            <ons-col class="col ons-col-inner">rejestracja</ons-col>
+                            <ons-col class="col ons-col-inner">
+                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="miasto" value="{{dogInfo.register | date:'yyyy-MM-dd'}}">
+                            </ons-col>
+                        </ons-row>
+                    </li>
+
+                </ul>
+
+            </div>
+            <div class="contenHolder whiteFrame newHolder nonActiveFields" ng-init="updateSelect()" ng-if="cardView=='zdrowie'">
+                <ul class="list">
+                    <li class="list__header">
+                        dane podstawowe
+                    </li>
+                    <li class="list__item">
+                        <ons-row align="center" class="row ons-row-inner row-center">
+                            <ons-col class="col ons-col-inner">wiek</ons-col>
+                            <ons-col class="col ons-col-inner">
+                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="miasto" ng-model="dogInfo.dog.age" ng-init="dogInfo.dog.age">
+                            </ons-col>
+                        </ons-row>
+                    </li>
+                    <li class="list__item">
+                        <ons-row align="center" class="row ons-row-inner row-center">
+                            <ons-col class="col ons-col-inner">data urodzenia</ons-col>
+                            <ons-col class="col ons-col-inner">
+                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="miasto" value="{{dogInfo.dog.birth | date:'yyyy-MM-dd'}}">
+                            </ons-col>
+                        </ons-row>
+                    </li>
+                    <li class="list__item">
+                        <ons-row align="center" class="row ons-row-inner row-center">
+                            <ons-col class="col ons-col-inner">płeć</ons-col>
+                            <ons-col class="col ons-col-inner">
+                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="miasto" value="{{dogInfo.dog.sex}}">
+                            </ons-col>
+                        </ons-row>
+                    </li>
+                    <li class="list__item">
+                        <ons-row align="center" class="row ons-row-inner row-center">
+                            <ons-col class="col ons-col-inner">waga</ons-col>
+                            <ons-col class="col ons-col-inner">
+                                <select class="inputClear loginInputStyle connectedInput" id="preSetWeight" dir="rtl">
+                                    <option value="1">1kg</option>
+                                    <option value="2">2kg</option>
+                                    <option value="3">3kg</option>
+                                    <option value="4">4kg</option>
+                                    <option value="5">5kg</option>
+                                    <option value="6">6kg</option>
+                                    <option value="7">7kg</option>
+                                    <option value="8">8kg</option>
+                                    <option value="9">9kg</option>
+                                    <option value="10">10kg</option>
+                                    <option value="11">11kg</option>
+                                    <option value="12">12kg</option>
+                                    <option value="13">13kg</option>
+                                    <option value="14">14kg</option>
+                                    <option value="15">15kg</option>
+                                    <option value="16">16kg</option>
+                                    <option value="17">17kg</option>
+                                    <option value="18">18kg</option>
+                                    <option value="19">19kg</option>
+                                    <option value="20">20kg</option>
+                                    <option value="21">21kg</option>
+                                    <option value="22">22kg</option>
+                                    <option value="23">23kg</option>
+                                    <option value="24">24kg</option>
+                                    <option value="25">25kg</option>
+                                    <option value="26">26kg</option>
+                                    <option value="27">27kg</option>
+                                    <option value="28">28kg</option>
+                                    <option value="29">29kg</option>
+                                    <option value="30">30kg</option>
+                                    <option value="31">31kg</option>
+                                    <option value="32">32kg</option>
+                                    <option value="33">33kg</option>
+                                    <option value="34">34kg</option>
+                                    <option value="35">35kg</option>
+                                    <option value="36">36kg</option>
+                                    <option value="37">37kg</option>
+                                    <option value="38">38kg</option>
+                                    <option value="39">39kg</option>
+                                    <option value="40">40kg</option>
+                                    <option value="41">41kg</option>
+                                    <option value="42">42kg</option>
+                                    <option value="43">43kg</option>
+                                    <option value="44">44kg</option>
+                                    <option value="45">45kg</option>
+                                    <option value="46">46kg</option>
+                                    <option value="47">47kg</option>
+                                    <option value="48">48kg</option>
+                                    <option value="49">49kg</option>
+                                    <option value="50">50kg</option>
+                                    <option value="51">51kg</option>
+                                    <option value="52">52kg</option>
+                                    <option value="53">53kg</option>
+                                    <option value="54">54kg</option>
+                                    <option value="55">55kg</option>
+                                    <option value="56">56kg</option>
+                                    <option value="57">57kg</option>
+                                    <option value="58">58kg</option>
+                                    <option value="59">59kg</option>
+                                    <option value="60">60kg</option>
+                                    <option value="61">61kg</option>
+                                    <option value="62">62kg</option>
+                                    <option value="63">63kg</option>
+                                    <option value="64">64kg</option>
+                                    <option value="65">65kg</option>
+                                    <option value="66">66kg</option>
+                                    <option value="67">67kg</option>
+                                    <option value="68">68kg</option>
+                                    <option value="69">69kg</option>
+                                    <option value="70">70kg</option>
+                                    <option value="71">71kg</option>
+                                    <option value="72">72kg</option>
+                                    <option value="73">73kg</option>
+                                    <option value="74">74kg</option>
+                                    <option value="75">75kg</option>
+                                    <option value="76">76kg</option>
+                                    <option value="77">77kg</option>
+                                    <option value="78">78kg</option>
+                                    <option value="79">79kg</option>
+                                    <option value="80">80kg</option>
+                                    <option value="81">81kg</option>
+                                    <option value="82">82kg</option>
+                                    <option value="83">83kg</option>
+                                    <option value="84">84kg</option>
+                                    <option value="85">85kg</option>
+                                    <option value="86">86kg</option>
+                                    <option value="87">87kg</option>
+                                    <option value="88">88kg</option>
+                                    <option value="89">89kg</option>
+                                    <option value="90">90kg</option>
+                                    <option value="91">91kg</option>
+                                    <option value="92">92kg</option>
+                                    <option value="93">93kg</option>
+                                    <option value="94">94kg</option>
+                                    <option value="95">95kg</option>
+                                    <option value="96">96kg</option>
+                                    <option value="97">97kg</option>
+                                    <option value="98">98kg</option>
+                                    <option value="99">99kg</option>
+                                    <option value="100">100kg</option>
+                                    <option value="101">101kg</option>
+                                    <option value="102">102kg</option>
+                                    <option value="103">103kg</option>
+                                    <option value="104">104kg</option>
+                                    <option value="105">105kg</option>
+                                    <option value="106">106kg</option>
+                                    <option value="107">107kg</option>
+                                    <option value="108">108kg</option>
+                                    <option value="109">109kg</option>
+                                    <option value="110">110kg</option>
+                                    <option value="111">111kg</option>
+                                    <option value="112">112kg</option>
+                                    <option value="113">113kg</option>
+                                    <option value="114">114kg</option>
+                                    <option value="115">115kg</option>
+                                </select>
+                            </ons-col>
+                        </ons-row>
+                    </li>
+                    <li class="list__item">
+                        <ons-row align="center" class="row ons-row-inner row-center">
+                            <ons-col class="col ons-col-inner">sterylizacja</ons-col>
+                            <ons-col class="col ons-col-inner">
+                                <select id="preSetStery" class="inputClear loginInputStyle connectedInput borderRadiusBR" dir="rtl">
+                                    <option value="0">nie</option>
+                                    <option value="1">tak</option>
+                                </select>
+                            </ons-col>
+                        </ons-row>
+                    </li>
+                    <li class="list__item">
+                        <ons-row align="center" class="row ons-row-inner row-center">
+                            <ons-col class="col ons-col-inner">posiada chip</ons-col>
+                            <ons-col class="col ons-col-inner">
+                                <select id="preSetChip" class="inputClear loginInputStyle connectedInput borderRadiusBR" dir="rtl">
+                                    <option value="0">nie</option>
+                                    <option value="1">tak</option>
+                                </select>
+                            </ons-col>
+                        </ons-row>
+                    </li>
+                    <li class="list__header" style="margin-top:20px;">
+                        dane właściciela
+                    </li>
+                    <li class="list__item">
+                        <ons-row align="center" class="row ons-row-inner row-center">
+                            <ons-col class="col ons-col-inner">miasto</ons-col>
+                            <ons-col class="col ons-col-inner">
+                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="miasto" ng-model="dogInfo.city" ng-init="dogInfo.city">
+                            </ons-col>
+                        </ons-row>
+                    </li>
+                    <li class="list__item">
+                        <ons-row align="center" class="row ons-row-inner row-center">
+                            <ons-col class="col ons-col-inner">ulica</ons-col>
+                            <ons-col class="col ons-col-inner">
+                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="ulica" ng-model="dogInfo.address" ng-init="dogInfo.address">
+                            </ons-col>
+                        </ons-row>
+                    </li>
+                    <li class="list__item">
+                        <ons-row align="center" class="row ons-row-inner row-center">
+                            <ons-col class="col ons-col-inner">nr domu/lokalu</ons-col>
+                            <ons-col class="col ons-col-inner">
+                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="nr domu/lokalu" ng-model="dogInfo.flat_number" ng-init="dogInfo.flat_number">
+                            </ons-col>
+                        </ons-row>
+                    </li>
+                    <li class="list__item">
+                        <ons-row align="center" class="row ons-row-inner row-center">
+                            <ons-col class="col ons-col-inner">telefon</ons-col>
+                            <ons-col class="col ons-col-inner">
+                                <input type="tel" class="text-input text-input--transparent inputWithLabel" placeholder="tel" ng-model="dogInfo.phone_number" ng-init="dogInfo.phone_number">
+                            </ons-col>
+                        </ons-row>
+                    </li>
+                    <li class="list__header" style="margin-top:20px;">
+                        szczepienia
+                    </li>
+                    <li class="list__item">
+                        <div class="inputWithLabel"><span class="inputLabel borderRadiusTL">wścieklizna</span>
+                            <div class="customCheckboxHolder borderRadiusTR">
+                                <div class="customCheckboxActive" ng-if="dogInfo.dog.rabies_vaccination==1"></div>
+                                <div class="customCheckboxInActive" ng-if="dogInfo.dog.rabies_vaccination==0"></div>
+
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </li>
+                    <li class="list__item">
+                        <div class="inputWithLabel"><span class="inputLabel">nosówka</span>
+                            <div class="customCheckboxHolder">
+                                <div class="customCheckboxActive" ng-if="dogInfo.dog.distemper_vaccination==1"></div>
+                                <div class="customCheckboxInActive" ng-if="dogInfo.dog.distemper_vaccination==0"></div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </li>
+                    <li class="list__header" style="margin-top:20px;">
+                        opis behawiorystyczny
+                    </li>
+                    <li class="list__item">
+                        <textarea class="inputClear" style="text-align:left !important;
+    line-height:20px; resize: none; direction: ltr;" ng-model="dogInfo.dog.description" ng-init="dogInfo.dog.description"></textarea>
+                        <div class="clear"></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </ons-page>
+    </ons-template>
 </body>
 
 </html>

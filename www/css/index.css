@@ -88,13 +88,10 @@ html {
 body {
     -webkit-touch-callout: none;
     /* prevent callout to copy image, etc when tap to hold */
-    
     -webkit-text-size-adjust: none;
     /* prevent webkit from resizing text to fit */
-    
     -webkit-user-select: none;
     /* prevent copy paste, to allow, change 'none' to 'text' */
-    
     font-family: 'linottesemibold' !important;
     font-size: 12px;
     height: 100%;
@@ -125,6 +122,8 @@ h2 {
     margin-top: 0px;
     margin-bottom: 40px;
 }
+
+
 /*NOTE Spiner */
 
 #spinnerIcon {
@@ -163,6 +162,8 @@ h2 {
     line-height: 100px;
     z-index: 9999;
 }
+
+
 /*NOTE: Login Pages */
 
 form.loginStyle {
@@ -321,6 +322,8 @@ p.recover {
 .logoMargin {
     margin-top: 10px;
 }
+
+
 /* Home/dash */
 
 .page--menu-page__background {
@@ -714,6 +717,8 @@ span.title {
     height: 40px;
     width: 100%;
 }
+
+
 /* Statystykie */
 
 .badge {
@@ -779,6 +784,20 @@ ons-icon.ng-scope.ons-icon.ons-icon--ion.ion-grid:before {
     content: "";
 }
 
+ons-icon.ng-scope.ons-icon.ons-icon--ion.ion-ios-refresh {
+    width: 28px;
+    font-size: 37px !important;
+    vertical-align: -11px !important;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url('restart.png');
+    background-position: center center;
+}
+
+ons-icon.ng-scope.ons-icon.ons-icon--ion.ion-ios-refresh:before {
+    content: "";
+}
+
 .task .title {
     margin-top: 0px;
 }
@@ -819,6 +838,8 @@ ons-icon.ng-scope.ons-icon.ons-icon--ion.ion-grid:before {
     border: solid 8px #FFF;
     margin: auto;
 }
+
+
 /* detale zestawu */
 
 .versus {
@@ -1046,6 +1067,8 @@ span.location {
 .userInList.ranking .leftPart .avatar {
     float: left;
 }
+
+
 /* Dystans */
 
 .numberDistance {
@@ -1256,6 +1279,7 @@ ons-list.bottom-menu-list.list.ons-list-inner {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     overflow: hidden;
+    background-color: #FFF;
 }
 
 .curseImageHolder img {
@@ -1415,4 +1439,112 @@ li.list__header {
     text-align: center;
     text-transform: uppercase;
     font-size: 0.8em;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+.friend {
+    border-bottom: solid 1px #000;
+    position: relative;
+    margin-left: -10px;
+    margin-right: -10px;
+    min-height: 77px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: #000;
+    padding-left: 99px;
+    padding-right: 47px;
+}
+
+.avatar.mini {
+    width: 77px;
+    height: 77px;
+    margin: auto;
+    border-radius: 46%;
+    box-shadow: inset 0px 0px 0px 4px #23B7DB, inset 0px 0px 0px 6px rgba(0, 0, 0, 0.2), 0px 2px 0px 0px rgb(32, 146, 171);
+    background-size: cover;
+    background-position: center center;
+    margin-bottom: 40px;
+    background-color: #FDFDFD;
+    position: absolute;
+    left: 10px;
+}
+
+span.dogNameSmall {
+    text-transform: uppercase;
+    display: block;
+    color: #2EB6D6;
+    font-size: 1.2em;
+}
+
+span.addInfoSmall {
+    font-size: 0.9em;
+    line-height: 1.15em;
+    display: block;
+    text-transform: uppercase;
+}
+
+.blueHolder {
+    padding: 20px 15px;
+    background-color: #23B7DB;
+    color: #000;
+}
+
+.phase {
+    color: #000;
+    border-bottom: solid 1px #000;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding: 0px 10px;
+    padding-right: 0px;
+}
+
+span.etapNumber {
+    color: #23B7DB;
+    font-size: 1.2em;
+}
+
+.movie {
+    border-bottom: solid 1px #000;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    position: relative;
+}
+
+.days {
+    padding-top: 15px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.playIcon {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    background: url(play.png);
+    background-size: 36px 36px;
+    right: 10px;
+    top: 50%;
+    margin-top: -18px;
+}
+
+.daysNumber {
+    font-size: 1.8em;
+}
+
+video#really-cool-video {
+    width: 100%;
+    height: 100vw;
+    background-color: #FFF;
+}
+
+.movieInfo {
+    color: #000;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.8em;
+    padding-left: 20px;
+    padding-right: 20px;
 }
