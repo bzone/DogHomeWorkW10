@@ -51,12 +51,12 @@
                 <div class="formIcon iconPass">
                     <input type="password" id="loginPassword" class="loginInputStyle lastInput" placeholder="hasło" />
                 </div>
-                <a class="submitButton" ng-click="loginUser()">zaloguj się</a>
+                <a class="submitButton" ng-click="loginUser()">{{lang.login_text_login}}</a>
                 <br/>
-                <span class="lub">lub</span>
-                <a class="submitButton alternative" onclick="navi.pushPage('register.html', { animation : 'slide' } )">utwórz nowe konto</a>
+                <span class="lub">{{lang.login_or}}</span>
+                <a class="submitButton alternative" onclick="navi.pushPage('register.html', { animation : 'slide' } )">{{lang.login_text_create_new_account}}</a>
                 <br/>
-                <a class="passwordReset" onclick="navi.pushPage('recovery.html', { animation : 'slide' } )">zapomniałeś hasła?</a>
+                <a class="passwordReset" onclick="navi.pushPage('recovery.html', { animation : 'slide' } )">{{lang.login_text_forgotten_password}}</a>
             </form>
         </ons-page>
     </ons-navigator>
@@ -72,19 +72,19 @@
                 </div>
             </ons-toolbar>
             <form class="loginStyle">
-                <h1>ETAP 1 z 5</h1>
-                <h2>DANE DO LOGOWANIA</h2>
+                <h1>{{lang.create_account_text_step1}}</h1>
+                <h2>{{lang.create_account_text_login_data}}</h2>
                 <div class="clear"></div>
                 <div class="formIcon iconMail">
-                    <input type="email" id="newUserEmail" class="loginInputStyle firstInput" placeholder="e-mail" ng-model="tmpUser.email" ng-init="tmpUser.email" />
+                    <input type="email" id="newUserEmail" class="loginInputStyle firstInput" placeholder="{{lang.login_text_email}}" ng-model="tmpUser.email" ng-init="tmpUser.email" />
                 </div>
                 <div class="formIcon iconPass">
-                    <input type="password" id="newUserPassword" class="loginInputStyle" placeholder="hasło" ng-model="tmpUser.password" ng-init="tmpUser.password" />
+                    <input type="password" id="newUserPassword" class="loginInputStyle" placeholder="{{lang.login_text_password}}" ng-model="tmpUser.password" ng-init="tmpUser.password" />
                 </div>
                 <div class="formIcon iconPass">
-                    <input type="password" id="newUserPasswordR" class="loginInputStyle lastInput" placeholder="powtórz hasło" ng-model="tmpUser.password2" ng-init="tmpUser.password2" />
+                    <input type="password" id="newUserPasswordR" class="loginInputStyle lastInput" placeholder="{{lang.create_account_text_password_again}}" ng-model="tmpUser.password2" ng-init="tmpUser.password2" />
                 </div>
-                <a class="submitButton" ng-click="registerUserE1()">dalej</a>
+                <a class="submitButton" ng-click="registerUserE1()">{{lang.create_account_text_button_next_step}}</a>
                 <br/>
             </form>
         </ons-page>
@@ -100,28 +100,28 @@
                 </div>
             </ons-toolbar>
             <form class="loginStyle">
-                <h1>ETAP 2 z 5</h1>
-                <h2>DANE WŁAŚCICIELA</h2>
+                <h1>{{lang.create_account_text_step2}}</h1>
+                <h2>{{lang.create_account_text_login_data</h2>
                 <div class="clear"></div>
                 <div class="formIcon iconPerson">
-                    <input type="text" id="newUserName" class="loginInputStyle firstInput" placeholder="imię" ng-model="tmpUser.first_name" ng-init="tmpUser.first_name" />
+                    <input type="text" id="newUserName" class="loginInputStyle firstInput" placeholder="{{lang.create_account_text_dog_name}}" ng-model="tmpUser.first_name" ng-init="tmpUser.first_name" />
                 </div>
                 <div class="formIcon iconPerson">
-                    <input type="text" id="newUserLastName" class="loginInputStyle" placeholder="nazwisko" ng-model="tmpUser.last_name" ng-init="tmpUser.last_name" />
+                    <input type="text" id="newUserLastName" class="loginInputStyle" placeholder="{{lang.last_name_text}}" ng-model="tmpUser.last_name" ng-init="tmpUser.last_name" />
                 </div>
                 <div class="formIcon iconLocation">
-                    <input type="text" id="newUserLocation1" class="loginInputStyle" placeholder="miesjscowość" ng-model="tmpUser.city" ng-init="tmpUser.city" />
+                    <input type="text" id="newUserLocation1" class="loginInputStyle" placeholder="{{lang.city_Text}}" ng-model="tmpUser.city" ng-init="tmpUser.city" />
                 </div>
                 <div class="formIcon iconLocation">
-                    <input type="text" id="newUserLocation2" class="loginInputStyle" placeholder="ulica" ng-model="tmpUser.address" ng-init="tmpUser.address" />
+                    <input type="text" id="newUserLocation2" class="loginInputStyle" placeholder="{{lang.street_text}}" ng-model="tmpUser.address" ng-init="tmpUser.address" />
                 </div>
                 <div class="formIcon iconLocation">
-                    <input type="text" id="newUserLocation3" class="loginInputStyle" placeholder="nr domu/nr lokalu" ng-model="tmpUser.flat_number" ng-init="tmpUser.flat_number" />
+                    <input type="text" id="newUserLocation3" class="loginInputStyle" placeholder="{{lang.text_house_number}}" ng-model="tmpUser.flat_number" ng-init="tmpUser.flat_number" />
                 </div>
                 <div class="formIcon iconPhone">
-                    <input type="tel" id="newUserPhone" class="loginInputStyle lastInput" placeholder="telefon kontaktowy" ng-model="tmpUser.phone_number" ng-init="tmpUser.phone_number" />
+                    <input type="tel" id="newUserPhone" class="loginInputStyle lastInput" placeholder="{{lang.create_account_text_phone_number}}" ng-model="tmpUser.phone_number" ng-init="tmpUser.phone_number" />
                 </div>
-                <a class="submitButton" ng-click="registerUserE2()">dalej</a>
+                <a class="submitButton" ng-click="registerUserE2()">{{lang.create_account_text_button_next_step}}</a>
                 <br/>
             </form>
         </ons-page>
@@ -137,26 +137,26 @@
                 </div>
             </ons-toolbar>
             <form class="loginStyle">
-                <h1>ETAP 3 z 5</h1>
-                <h2>INFORMACJE O PSIE</h2>
+                <h1>{{lang.create_account_text_step3}}</h1>
+                <h2>{{lang.create_account_text_dog_info}}</h2>
                 <div class="clear"></div>
-                <div class="inputWithLabel"><span class="inputLabel borderRadiusTL">imię</span>
+                <div class="inputWithLabel"><span class="inputLabel borderRadiusTL">{{lang.create_account_text_dog_name}}</span>
                     <input type="text" id="newUserDogName" class="loginInputStyle connectedInput borderRadiusTR" ng-model="tmpUser.dog_name" ng-init="tmpUser.dog_name" />
                 </div>
-                <div class="inputWithLabel"><span class="inputLabel">rasa</span>
+                <div class="inputWithLabel"><span class="inputLabel">{{lang.create_account_text_breed_text}}</span>
                     <input type="text" id="newUserDogRace" class="loginInputStyle connectedInput" ng-model="tmpUser.dog_breed" ng-init="tmpUser.dog_breed" />
                 </div>
-                <div class="inputWithLabel"><span class="inputLabel">płeć</span>
+                <div class="inputWithLabel"><span class="inputLabel">{{lang.create_account_text_sex}}</span>
                     <select class="inputClear loginInputStyle connectedInput" dir="rtl" ng-model="tmpUser.dog_sex" ng-init="tmpUser.dog_sex">
-                        <option value="suka">suka</option>
-                        <option value="pies">pies</option>
+                        <option value="suka">{{lang.create_account_text_sex_type1}}</option>
+                        <option value="pies">{{lang.dog_text}}</option>
                     </select>
                 </div>
                 <div class="formLine"></div>
-                <div class="inputWithLabel"><span class="inputLabel">data urodzenia</span>
+                <div class="inputWithLabel"><span class="inputLabel">{{lang.create_account_text_bithdate}}</span>
                     <input type="text" class="loginInputStyle connectedInput" value="{{date | date:'yyyy-MM-dd'}}" step="1" class="inputClear" ng-model="tmpUser.dog_birth_date" ng-init="tmpUser.dog_birth_date">
                 </div>
-                <div class="inputWithLabel"><span class="inputLabel">waga</span>
+                <div class="inputWithLabel"><span class="inputLabel">{{lang.weight_text}}</span>
                     <select class="inputClear loginInputStyle connectedInput" dir="rtl" ng-model="tmpUser.dog_weight" ng-init="tmpUser.dog_weight">
                         <option value="1kg">1kg</option>
                         <option value="2kg">2kg</option>
@@ -276,21 +276,21 @@
                     </select>
                 </div>
                 <div class="formLine"></div>
-                <div class="inputWithLabel"><span class="inputLabel">sterylizacja</span>
+                <div class="inputWithLabel"><span class="inputLabel">{{lang.create_account_text_sterile}}</span>
                     <select class="inputClear loginInputStyle connectedInput" dir="rtl" ng-model="tmpUser.dog_sterilization" ng-init="tmpUser.dog_sterilization">
-                        <option value="nie">nie</option>
-                        <option value="tak">tak</option>
+                        <option value="nie">{{lang.no_text}}</option>
+                        <option value="tak">{{lang.yes_text}}</option>
                     </select>
                 </div>
                 <div class="formLine"></div>
                 <div class="inputWithLabel marginB"><span class="inputLabel borderRadiusBL">chip</span>
                     <select class="inputClear loginInputStyle connectedInput borderRadiusBR" dir="rtl" ng-model="tmpUser.dog_chip" ng-init="tmpUser.dog_chip">
-                        <option value="nie">nie</option>
-                        <option value="tak">tak</option>
+                        <option value="nie">{{lang.no_text}}</option>
+                        <option value="tak">{{lang.yes_text}}</option>
                     </select>
                 </div>
 
-                <a class="submitButton" ng-click="registerUserE3()">dalej</a>
+                <a class="submitButton" ng-click="registerUserE3()">{{lang.create_account_text_button_next_step}}</a>
                 <br/>
             </form>
         </ons-page>
@@ -306,33 +306,33 @@
                 </div>
             </ons-toolbar>
             <form class="loginStyle">
-                <h1>ETAP 4 z 5</h1>
-                <h2>SZCZEPIENIA</h2>
+                <h1>{{lang.create_account_text_step4}}</h1>
+                <h2>{{lang.create_account_text_vaccination}}</h2>
                 <div class="clear"></div>
-                <div class="inputWithLabel"><span class="inputLabel borderRadiusTL">wścieklizna</span>
+                <div class="inputWithLabel"><span class="inputLabel borderRadiusTL">{{lang.create_account_text_illness_1}}</span>
                     <div class="customCheckboxHolder borderRadiusTR" ng-click="wsciekliznaCheckbox()">
                         <div class="customCheckboxActive" ng-if="newUser.wscieklizna"></div>
                         <div class="customCheckboxInActive" ng-if="!newUser.wscieklizna"></div>
                     </div>
                 </div>
                 <div class="formLine"></div>
-                <div class="inputWithLabel"><span class="inputLabel">data</span>
+                <div class="inputWithLabel"><span class="inputLabel">{{lang.date_text}}</span>
                     <input type="text" class="loginInputStyle connectedInput" value="{{date | date:'yyyy-MM-dd'}}" step="1" class="inputClear" ng-model="tmpUser.dog_rabies_vaccination_at" ng-init="tmpUser.dog_rabies_vaccination_at" ng-if="newUser.wscieklizna">
                     <input type="text" class="loginInputStyle connectedInput" value="{{date | date:'yyyy-MM-dd'}}" step="1" class="inputClear" ng-model="tmpUser.dog_rabies_vaccination_at" ng-init="tmpUser.dog_rabies_vaccination_at" ng-if="!newUser.wscieklizna" disabled>
                 </div>
-                <div class="inputWithLabel"><span class="inputLabel">nosówka</span>
+                <div class="inputWithLabel"><span class="inputLabel">{{lang.create_account_text_illness2}}</span>
                     <div class="customCheckboxHolder" ng-click="nosowkaCheckbox()">
                         <div class="customCheckboxActive" ng-if="newUser.nosowka"></div>
                         <div class="customCheckboxInActive" ng-if="!newUser.nosowka"></div>
                     </div>
                 </div>
                 <div class="formLine"></div>
-                <div class="inputWithLabel marginB"><span class="inputLabel borderRadiusBL">data</span>
+                <div class="inputWithLabel marginB"><span class="inputLabel borderRadiusBL">{{lang.date_text}}</span>
                     <input type="text" class="loginInputStyle connectedInput borderRadiusBR" value="{{date | date:'yyyy-MM-dd'}}" step="1" class="inputClear" ng-if="newUser.nosowka" ng-model="tmpUser.dog_distemper_vaccination_at" ng-init="tmpUser.dog_distemper_vaccination_at">
                     <input type="text" class="loginInputStyle connectedInput borderRadiusBR" value="{{date | date:'yyyy-MM-dd'}}" step="1" class="inputClear" ng-if="!newUser.nosowka" ng-model="tmpUser.dog_distemper_vaccination_at" ng-init="tmpUser.dog_distemper_vaccination_at" disabled>
                 </div>
 
-                <a class="submitButton" ng-click="registerUserE4()">dalej</a>
+                <a class="submitButton" ng-click="registerUserE4()">{{lang.create_account_text_button_next_step}}</a>
                 <br/>
             </form>
         </ons-page>
@@ -349,16 +349,16 @@
                 </div>
             </ons-toolbar>
             <form class="loginStyle">
-                <h1>ETAP 5 z 5</h1>
-                <h2>AWATAR</h2>
+                <h1>{{lang.create_account_text_step5}}</h1>
+                <h2>{{lang.create_account_text_avatar}}</h2>
                 <div class="clear"></div>
                 <div class="contenHolder">
                     <div id="avatarPreview" class="avatar" style="background-image:url('http://daredot.dev.thickmug.com{{user.image_url}}');"></div>
 
 
                 </div>
-                <a class="submitButton alternative" ng-click="changeAvatar()">Zmień awatar</a>
-                <a class="submitButton" ng-click="registerUser()">Zakończ</a>
+                <a class="submitButton alternative" ng-click="changeAvatar()">{{lang.create_account_text_set_avatar}}</a>
+                <a class="submitButton" ng-click="registerUser()">{{lang.create_Account_text_finish}}</a>
                 <br/>
             </form>
         </ons-page>
@@ -377,8 +377,7 @@
             <form class="loginStyle">
                 <div class="bigLogo logoMargin"></div>
 
-                <p class="recover">Podaj nazwę uzytkownika i adres e-mail powiązany z Twoim kontem.
-                    <br/>Na podany adres otrzymasz przypomnienia swojego hasła.</p>
+                <p class="recover">{{lang.password_text_description}}</p>
                 <br/>
                 <div class="formIcon iconPerson">
                     <input type="text" id="recoverUser" class="loginInputStyle firstInput" placeholder="twoja nazwa użytkownika" />
@@ -386,7 +385,7 @@
                 <div class="formIcon iconMail">
                     <input type="email" id="recoverEmail" class="loginInputStyle lastInput" placeholder="twój e-mail" />
                 </div>
-                <a class="submitButton" ng-click="recoverPassword()">zresetuj hasło</a>
+                <a class="submitButton" ng-click="recoverPassword()">{{lang.password_text_recover_my_password}}</a>
                 <br/>
             </form>
         </ons-page>
@@ -409,7 +408,7 @@
                             <ons-icon icon="ion-navicon" size="28px" fixed-width="false"></ons-icon>
                         </ons-toolbar-button>
                     </div>
-                    <div class="center">SZKOLENIA</div>
+                    <div class="center">{{lang.create_account_text_school}}</div>
                     <!--<div class="right">
                         <ons-toolbar-button ng-click="openNotifications()">
                             <ons-icon icon="ion-grid" size="28px" fixed-width="false"></ons-icon>
@@ -426,7 +425,7 @@
                         <div class="curseDesc">
                             <div class="complete" ng-if="curse.stats.percentage_of_completion==1"></div>
                             <h2>{{curse.name}}</h2> {{curse.description | limitTo:80}}...
-                            <span class="curseStats">ETAPY: {{curse.number_of_phases}} | STOPIEŃ UKOŃCZENIA {{curse.stats.percentage_of_completion}}%</span>
+                            <span class="curseStats">{{lang.text_chapters}}: {{curse.number_of_phases}} | {{lang.level_of_completion}} {{curse.stats.percentage_of_completion}}%</span>
                         </div>
                     </div>
 
@@ -451,26 +450,26 @@
             </div>
             <ons-list class="bottom-menu-list">
                 <ons-list-item class="bottom-menu-item" ng-click="openHome()">
-                    <div class="menuIcon home"></div> Szkolenia
+                    <div class="menuIcon home"></div> {{lang.menu_courses}}
                 </ons-list-item>
 
                 <ons-list-item class="bottom-menu-item" ng-click="openYourDog()">
-                    <div class="menuIcon yourQuests"></div> Karta Twojego psa
+                    <div class="menuIcon yourQuests"></div> {{lang.menu_dog_info}}
                 </ons-list-item>
 
                 <ons-list-item class="bottom-menu-item" ng-click="openFriendsDogs()">
-                    <div class="menuIcon newQuest"></div> Psy Twoich znajomych
+                    <div class="menuIcon newQuest"></div> {{lang.menu_dogs_friends}}
                 </ons-list-item>
 
                 <ons-list-item class="bottom-menu-item" ng-click="openStoper()">
-                    <div class="menuIcon stats"></div> Stoper
+                    <div class="menuIcon stats"></div> {{lang.menu_stopwatch}}
                 </ons-list-item>
 
                 <ons-list-item class="bottom-menu-item" ng-click="openSettings()">
-                    <div class="menuIcon settings"></div> Aktualizacja danych
+                    <div class="menuIcon settings"></div> {{lang.menu_update}}
                 </ons-list-item>
             </ons-list>
-            <a class="submitButton logOut" ng-click="logOut()">Wyloguj</a>
+            <a class="submitButton logOut" ng-click="logOut()">{{lang.menu_logout}}</a>
         </ons-page>
     </ons-template>
 
@@ -484,7 +483,7 @@
                         <ons-icon icon="ion-navicon" size="28px" fixed-width="false"></ons-icon>
                     </ons-toolbar-button>
                 </div>
-                <div class="center">PSY ZNAJMOYCH</div>
+                <div class="center">{{lang.dog_friends_text_title}}</div>
                 <div class="right">
                     <ons-toolbar-button ng-click="addFriend()">
                         <ons-icon icon="ion-grid" size="28px" fixed-width="false"></ons-icon>
@@ -513,7 +512,7 @@
                         <ons-icon icon="ion-navicon" size="28px" fixed-width="false"></ons-icon>
                     </ons-toolbar-button>
                 </div>
-                <div class="center">STOPER</div>
+                <div class="center">{{lang.title_stopwatch}}</div>
                 <div class="right">
                     <ons-toolbar-button ng-click="resetStoper()">
                         <ons-icon icon="ion-ios-refresh" size="28px" fixed-width="false"></ons-icon>
@@ -524,22 +523,22 @@
                 <br>
                 <br>
                 <div class="dogName" style="font-size:4em;"><span ng-if="stoper.min<10">0</span>{{stoper.min}}:<span ng-if="stoper.sec<10">0</span>{{stoper.sec}},<span ng-if="stoper.tys<10">0</span>{{stoper.tys}}</div>
-                <div class="addInfo">OBECNA RUNDA: <span ng-if="stoper.rmin<10">0</span>{{stoper.rmin}}:<span ng-if="stoper.rsec<10">0</span>{{stoper.rsec}},<span ng-if="stoper.rtys<10">0</span>{{stoper.rtys}}</div>
+                <div class="addInfo">{{lang.text_current_round}}: <span ng-if="stoper.rmin<10">0</span>{{stoper.rmin}}:<span ng-if="stoper.rsec<10">0</span>{{stoper.rsec}},<span ng-if="stoper.rtys<10">0</span>{{stoper.rtys}}</div>
                 <br>
                 <br>
-                <a class="submitButton" ng-click="startStoper()" ng-if="stoper.action=='stop'">START</a>
-                <a class="submitButton alternative" ng-click="stopStoper()" ng-if="stoper.action=='start'">STOP</a>
-                <a class="submitButton" ng-if="stoper.action=='stop'" style="opacity:0.5;">RUNDA</a>
-                <a class="submitButton" ng-click="rundaStoper()" ng-if="stoper.action=='start'">RUNDA</a>
+                <a class="submitButton" ng-click="startStoper()" ng-if="stoper.action=='stop'">{{lang.start_text}}</a>
+                <a class="submitButton alternative" ng-click="stopStoper()" ng-if="stoper.action=='start'">{{lang.stop_text}}</a>
+                <a class="submitButton" ng-if="stoper.action=='stop'" style="opacity:0.5;">{{lang.round_text}}</a>
+                <a class="submitButton" ng-click="rundaStoper()" ng-if="stoper.action=='start'">{{lang.round_text}}</a>
             </div>
             <div class="contenHolder whiteFrame newHolder" style="min-height:50vh;">
                 <ul class="list">
                     <li class="list__header">
-                        rundy
+                        {{lang.rounds_text}}
                     </li>
                     <li class="list__item" ng-repeat="runda in stoper.rounds | orderBy:'-id'">
                         <ons-row align="center" class="row ons-row-inner row-center">
-                            <ons-col class="col ons-col-inner">Runda {{runda.id}}</ons-col>
+                            <ons-col class="col ons-col-inner">{{lang.text_round}} {{runda.id}}</ons-col>
                             <ons-col class="col ons-col-inner text-right">{{runda.czas}}</ons-col>
                         </ons-row>
                     </li>
@@ -556,7 +555,7 @@
                         <ons-icon icon="ion-ios-arrow-back" size="28px" fixed-width="false"></ons-icon>
                     </ons-toolbar-button>
                 </div>
-                <div class="center">SZKOLENIE</div>
+                <div class="center">{{lang.training_text_training}}</div>
             </ons-toolbar>
             <div class="contenHolder">
                 <br>
@@ -571,14 +570,14 @@
                 <div class="phase" ng-repeat="faza in curseInfo.phases">
                     <div class="movie" ng-click="showMovie($index)">
                         <div class="playIcon"></div>
-                        <span class="etapNumber">ETAP {{$index+1}}</span>
+                        <span class="etapNumber">{{lang.text_chapter}} {{$index+1}}</span>
                         <div class="etapDesc">{{faza.name}}</div>
                     </div>
                     <div class="days" ng-click="showDays($index)">
                         <div class="arrow"></div>
-                        <span class="daysHeader">UKOŃCZONO</span>
+                        <span class="daysHeader">{{lang.finished}}</span>
                         <br>
-                        <div class="daysNumber">{{faza.done}}/{{faza.number_of_days}} dni</div>
+                        <div class="daysNumber">{{faza.done}}/{{faza.number_of_days}} {{lang.days_text}}</div>
                     </div>
                 </div>
             </div>
@@ -594,12 +593,12 @@
                         <ons-icon icon="ion-ios-arrow-back" size="28px" fixed-width="false"></ons-icon>
                     </ons-toolbar-button>
                 </div>
-                <div class="center">SZKOLENIE</div>
+                <div class="center">{{lang.training_text_training}}</div>
             </ons-toolbar>
             <div class="contenHolder">
                 <br>
                 <br>
-                <div class="dogName" style="font-size:1.5em;">{{curseInfo.name}} - ETAP {{etap+1}}</div>
+                <div class="dogName" style="font-size:1.5em;">{{curseInfo.name}} - {{lang.text_chapter}} {{etap+1}}</div>
             </div>
             <div class="blueHolder">
                 {{curseInfo.phases[etap].days_info}}
@@ -608,7 +607,7 @@
 
                 <ul class="list">
                     <li class="list__item" ng-repeat="dzien in curseInfo.phases[etap].days">
-                        <div class="inputWithLabel"><span class="inputLabel"> Dzień {{$index+1}}</span>
+                        <div class="inputWithLabel"><span class="inputLabel"> {{lang.day_text}} {{$index+1}}</span>
                             <div class="customCheckboxHolder">
                                 <div class="customCheckboxActive" ng-if="dzien==1" ng-click="setDay(curseInfo.phases[etap].id,$index+1,0)"></div>
                                 <div class="customCheckboxInActive" ng-if="dzien==0" ng-click="setDay(curseInfo.phases[etap].id,$index+1,1)"></div>
@@ -629,7 +628,7 @@
                         <ons-icon icon="ion-ios-arrow-back" size="28px" fixed-width="false"></ons-icon>
                     </ons-toolbar-button>
                 </div>
-                <div class="center">SZKOLENIE</div>
+                <div class="center">{{lang.training_text_training}}</div>
             </ons-toolbar>
             <div style="background-color:#FFF; min-height:95vh; margin-top:5px;">
                 <br>
@@ -667,7 +666,7 @@
                         <ons-icon icon="ion-navicon" size="28px" fixed-width="false"></ons-icon>
                     </ons-toolbar-button>
                 </div>
-                <div class="center">SZKOLENIA</div>
+                <div class="center">{{lang.training_text_training}}</div>
                 <!--<div class="right">
                         <ons-toolbar-button ng-click="openNotifications()">
                             <ons-icon icon="ion-grid" size="28px" fixed-width="false"></ons-icon>
@@ -701,7 +700,7 @@
                         <ons-icon icon="ion-navicon" size="28px" fixed-width="false"></ons-icon>
                     </ons-toolbar-button>
                 </div>
-                <div class="center">AKTUALIZACJA DANYCH</div>
+                <div class="center">{{lang.update_text_title}}</div>
                 <div class="right">
 
                 </div>
@@ -710,17 +709,17 @@
             <div class="contenHolder">
                 <div id="avatarPreview" class="avatar" style="background-image:url('http://doghomework.dev.thickmug.com{{user.dog.image_url}}');"></div>
 
-                <a class="submitButton alternative" ng-click="changeAvatar()">Zmień awatar</a>
+                <a class="submitButton alternative" ng-click="changeAvatar()">{{lang.create_account_text_set_avatar}}</a>
             </div>
             <div class="clear"></div>
             <div class="contenHolder whiteFrame newHolder" ng-init="updateSelect()">
                 <ul class="list">
                     <li class="list__header">
-                        dane podstawowe
+                        {{lang.dog_card_text_basic_data}}
                     </li>
                     <li class="list__item">
                         <ons-row align="center" class="row ons-row-inner row-center">
-                            <ons-col class="col ons-col-inner">waga</ons-col>
+                            <ons-col class="col ons-col-inner">{{lang.weight_text}}</ons-col>
                             <ons-col class="col ons-col-inner">
                                 <select class="inputClear loginInputStyle connectedInput" id="preSetWeight" dir="rtl">
                                     <option value="1">1kg</option>
@@ -844,82 +843,82 @@
                     </li>
                     <li class="list__item">
                         <ons-row align="center" class="row ons-row-inner row-center">
-                            <ons-col class="col ons-col-inner">sterylizacja</ons-col>
+                            <ons-col class="col ons-col-inner">{{lang.create_account_text_sterile}}</ons-col>
                             <ons-col class="col ons-col-inner">
                                 <select id="preSetStery" class="inputClear loginInputStyle connectedInput borderRadiusBR" dir="rtl">
-                                    <option value="0">nie</option>
-                                    <option value="1">tak</option>
+                                    <option value="0">{{lang.no_text}}</option>
+                                    <option value="1">{{lang.yes_text}}</option>
                                 </select>
                             </ons-col>
                         </ons-row>
                     </li>
                     <li class="list__item">
                         <ons-row align="center" class="row ons-row-inner row-center">
-                            <ons-col class="col ons-col-inner">posiada chip</ons-col>
+                            <ons-col class="col ons-col-inner">{{lang.text_has_chip}}</ons-col>
                             <ons-col class="col ons-col-inner">
                                 <select id="preSetChip" class="inputClear loginInputStyle connectedInput borderRadiusBR" dir="rtl">
-                                    <option value="0">nie</option>
-                                    <option value="1">tak</option>
+                               <option value="0">{{lang.no_text}}</option>
+                                    <option value="1">{{lang.yes_text}}</option>
                                 </select>
                             </ons-col>
                         </ons-row>
                     </li>
                     <li class="list__header" style="margin-top:20px;">
-                        dane właściciela
+                        {{lang.dog_card_text_owner_info}}
                     </li>
                     <li class="list__item">
                         <ons-row align="center" class="row ons-row-inner row-center">
-                            <ons-col class="col ons-col-inner">imię</ons-col>
+                            <ons-col class="col ons-col-inner">{{lang.create_account_text_dog_name}}</ons-col>
                             <ons-col class="col ons-col-inner">
-                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="imię" ng-model="user.first_name" ng-init="user.first_name">
+                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="{{lang.create_account_text_dog_name}}" ng-model="user.first_name" ng-init="user.first_name">
                             </ons-col>
                         </ons-row>
                     </li>
                     <li class="list__item">
                         <ons-row align="center" class="row ons-row-inner row-center">
-                            <ons-col class="col ons-col-inner">nazwisko</ons-col>
+                            <ons-col class="col ons-col-inner">{{lang.last_name_text}}</ons-col>
                             <ons-col class="col ons-col-inner">
-                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="nazwisko" ng-model="user.last_name" ng-init="user.last_name">
+                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="{{lang.last_name_text}}" ng-model="user.last_name" ng-init="user.last_name">
                             </ons-col>
                         </ons-row>
                     </li>
                     <li class="list__item">
                         <ons-row align="center" class="row ons-row-inner row-center">
-                            <ons-col class="col ons-col-inner">miasto</ons-col>
+                            <ons-col class="col ons-col-inner">{{lang.city_Text}}</ons-col>
                             <ons-col class="col ons-col-inner">
-                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="miasto" ng-model="user.city" ng-init="user.city">
+                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="{{lang.city_Text}}" ng-model="user.city" ng-init="user.city">
                             </ons-col>
                         </ons-row>
                     </li>
                     <li class="list__item">
                         <ons-row align="center" class="row ons-row-inner row-center">
-                            <ons-col class="col ons-col-inner">ulica</ons-col>
+                            <ons-col class="col ons-col-inner">{{lang.street_text}}</ons-col>
                             <ons-col class="col ons-col-inner">
-                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="ulica" ng-model="user.address" ng-init="user.address">
+                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="{{lang.street_text}}" ng-model="user.address" ng-init="user.address">
                             </ons-col>
                         </ons-row>
                     </li>
                     <li class="list__item">
                         <ons-row align="center" class="row ons-row-inner row-center">
-                            <ons-col class="col ons-col-inner">nr domu/lokalu</ons-col>
+                            <ons-col class="col ons-col-inner">{{lang.create_account_text_house_number}}</ons-col>
                             <ons-col class="col ons-col-inner">
-                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="nr domu/lokalu" ng-model="user.flat_number" ng-init="user.flat_number">
+                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="{{lang.create_account_text_house_number}}" ng-model="user.flat_number" ng-init="user.flat_number">
                             </ons-col>
                         </ons-row>
                     </li>
                     <li class="list__item">
                         <ons-row align="center" class="row ons-row-inner row-center">
-                            <ons-col class="col ons-col-inner">telefon</ons-col>
+                            <ons-col class="col ons-col-inner">{{lang.phone_text}}</ons-col>
                             <ons-col class="col ons-col-inner">
-                                <input type="tel" class="text-input text-input--transparent inputWithLabel" placeholder="tel" ng-model="user.phone_number" ng-init="user.phone_number">
+                                <input type="tel" class="text-input text-input--transparent inputWithLabel" placeholder="{{lang.phone_text}}" ng-model="user.phone_number" ng-init="user.phone_number">
                             </ons-col>
                         </ons-row>
                     </li>
                     <li class="list__header" style="margin-top:20px;">
-                        szczepienia
+                        {{lang.dog_card_text_vacc_info}}
                     </li>
                     <li class="list__item">
-                        <div class="inputWithLabel"><span class="inputLabel borderRadiusTL">wścieklizna</span>
+                        <div class="inputWithLabel"><span class="inputLabel borderRadiusTL">{{lang.create_account_text_illness_1}}</span>
                             <div class="customCheckboxHolder borderRadiusTR" ng-click="wsciekliznaCheckbox2()">
                                 <div class="customCheckboxActive" ng-if="user.dog.rabies_vaccination==1"></div>
                                 <div class="customCheckboxInActive" ng-if="user.dog.rabies_vaccination==0"></div>
@@ -929,14 +928,14 @@
                         </div>
                     </li>
                     <li class="list__item">
-                        <div class="inputWithLabel"><span class="inputLabel">data</span>
+                        <div class="inputWithLabel"><span class="inputLabel">{{lang.date_text}}</span>
                             <input type="text" class="loginInputStyle connectedInput" value="{{user.dog. rabies_vaccination_at  | date:'yyyy-MM-dd'}}" step="1" class="inputClear" ng-if="user.dog.rabies_vaccination==1">
                             <input type="text" class="loginInputStyle connectedInput" value="{{user.dog. rabies_vaccination_at  | date:'yyyy-MM-dd'}}" step="1" class="inputClear" ng-if="user.dog.rabies_vaccination==0" disabled>
                             <div class="clear"></div>
                         </div>
                     </li>
                     <li class="list__item">
-                        <div class="inputWithLabel"><span class="inputLabel">nosówka</span>
+                        <div class="inputWithLabel"><span class="inputLabel">{{lang.create_account_text_illness2}}</span>
                             <div class="customCheckboxHolder" ng-click="nosowkaCheckbox2()">
                                 <div class="customCheckboxActive" ng-if="user.dog.distemper_vaccination==1"></div>
                                 <div class="customCheckboxInActive" ng-if="user.dog.distemper_vaccination==0"></div>
@@ -945,14 +944,14 @@
                         </div>
                     </li>
                     <li class="list__item">
-                        <div class="inputWithLabel"><span class="inputLabel borderRadiusBL">data</span>
+                        <div class="inputWithLabel"><span class="inputLabel borderRadiusBL">{{lang.date_text}}</span>
                             <input type="text" class="loginInputStyle connectedInput borderRadiusBR" value="{{user.dog.distemper_vaccination_at | date:'yyyy-MM-dd'}}" step="1" class="inputClear" ng-if="user.dog.distemper_vaccination==1">
                             <input type="text" class="loginInputStyle connectedInput borderRadiusBR" value="{{user.dog.distemper_vaccination_at  | date:'yyyy-MM-dd'}}" step="1" class="inputClear" ng-if="user.dog.distemper_vaccination==0" disabled>
                             <div class="clear"></div>
                         </div>
                     </li>
                     <li class="list__header" style="margin-top:20px;">
-                        opis behawiorystyczny
+                        {{lang.dog_card_text_behavioral_info}}
                     </li>
                     <li class="list__item">
                         <textarea class="inputClear" style="resize: none; direction: ltr; text-align:left !important;
@@ -961,7 +960,7 @@
                     </li>
                 </ul>
                 <div style="padding:5px;">
-                    <a class="submitButton" ng-click="saveSettings()">Zapisz ustawienia</a>
+                    <a class="submitButton" ng-click="saveSettings()">{{lang.update_text_save_changes}}</a>
                 </div>
             </div>
             <div class="clear"></div>
@@ -976,7 +975,7 @@
                         <ons-icon icon="ion-navicon" size="28px" fixed-width="false"></ons-icon>
                     </ons-toolbar-button>
                 </div>
-                <div class="center">TWÓJ PIES</div>
+                <div class="center">{{lang.title_your_dog}}</div>
                 <div class="right">
 
                 </div>
@@ -985,45 +984,45 @@
             <div class="contenHolder">
                 <div id="avatarPreview" class="avatar" style="background-image:url('http://doghomework.dev.thickmug.com{{user.dog.image_url}}');"></div>
                 <div class="dogName">{{user.dog.name}}</div>
-                <div class="addInfo">RASA: {{user.dog.breed}}
-                    <br>WŁAŚCICIEL {{user.first_name}} {{user.last_name}}</div>
+                <div class="addInfo">{{lang.dog_card_text_breed}} {{user.dog.breed}}
+                    <br>{{lang.dog_card_text_owner}} {{user.first_name}} {{user.last_name}}</div>
 
             </div>
             <div class="clear"></div>
             <div class="tabs">
-                <div class="tabActive" ng-if="cardView=='szkolenie'" ng-click="cardViewChange('szkolenie')">SZKOLENIE</div>
-                <div class="tabInActive" ng-if="cardView=='szkolenie'" ng-click="cardViewChange('zdrowie')">ZDROWIE</div>
-                <div class="tabInActive" ng-if="cardView=='zdrowie'" ng-click="cardViewChange('szkolenie')">SZKOLENIE</div>
-                <div class="tabActive" ng-if="cardView=='zdrowie'" ng-click="cardViewChange('zdrowie')">ZDROWIE</div>
+                <div class="tabActive" ng-if="cardView=='szkolenie'" ng-click="cardViewChange('szkolenie')">{{lang.training_text_training}}</div>
+                <div class="tabInActive" ng-if="cardView=='szkolenie'" ng-click="cardViewChange('zdrowie')">{{lang.dog_card_text_zdrowie}}</div>
+                <div class="tabInActive" ng-if="cardView=='zdrowie'" ng-click="cardViewChange('szkolenie')">{{lang.training_text_training}}</div>
+                <div class="tabActive" ng-if="cardView=='zdrowie'" ng-click="cardViewChange('zdrowie')">{{lang.dog_card_text_zdrowie}}</div>
             </div>
             <div class="contenHolder whiteFrame newHolder nonActiveFields" ng-init="updateSelect()" ng-if="cardView=='szkolenie'">
                 <ul class="list">
                     <li class="list__header">
-                        skończone szkolenia
+                        {{lang.trainings_section_text_trainings_done}}
                     </li>
 
                     <li class="list__header" style="margin-top:20px;">
-                        statystyki
+                        {{lang.dog_card_text_stats_text}}
                     </li>
                     <li class="list__item">
                         <ons-row align="center" class="row ons-row-inner row-center">
-                            <ons-col class="col ons-col-inner">podstawowe szkolenia</ons-col>
+                            <ons-col class="col ons-col-inner">{{lang.text_basic_trainings}}</ons-col>
                             <ons-col class="col ons-col-inner">
-                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="miasto" value="{{user.dog.stats.percentage_of_completion_base_courses}}">
+                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="{{lang.text_basic_trainings}}" value="{{user.dog.stats.percentage_of_completion_base_courses}}">
                             </ons-col>
                         </ons-row>
                     </li>
                     <li class="list__item">
                         <ons-row align="center" class="row ons-row-inner row-center">
-                            <ons-col class="col ons-col-inner">ukończone zestawy</ons-col>
+                            <ons-col class="col ons-col-inner">{{lang.text_courses_finished}}</ons-col>
                             <ons-col class="col ons-col-inner">
-                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="miasto" value="{{user.dog.stats.number_of_finished_courses}}">
+                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="{{lang.text_courses_finished}}" value="{{user.dog.stats.number_of_finished_courses}}">
                             </ons-col>
                         </ons-row>
                     </li>
                     <li class="list__item">
                         <ons-row align="center" class="row ons-row-inner row-center">
-                            <ons-col class="col ons-col-inner">ilość dni na szkoleniach</ons-col>
+                            <ons-col class="col ons-col-inner">{{lang.text_days_of_trainings}}</ons-col>
                             <ons-col class="col ons-col-inner">
                                 <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="0" value="{{user.dog.stats.days}}">
                             </ons-col>
@@ -1031,9 +1030,9 @@
                     </li>
                     <li class="list__item">
                         <ons-row align="center" class="row ons-row-inner row-center">
-                            <ons-col class="col ons-col-inner">rejestracja</ons-col>
+                            <ons-col class="col ons-col-inner">{{lang.text_registration}}</ons-col>
                             <ons-col class="col ons-col-inner">
-                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="miasto" value="{{user.register | date:'yyyy-MM-dd'}}">
+                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="{{lang.text_registration}}" value="{{user.register | date:'yyyy-MM-dd'}}">
                             </ons-col>
                         </ons-row>
                     </li>
@@ -1044,35 +1043,35 @@
             <div class="contenHolder whiteFrame newHolder nonActiveFields" ng-init="updateSelect()" ng-if="cardView=='zdrowie'">
                 <ul class="list">
                     <li class="list__header">
-                        dane podstawowe
+                        {{lang.dog_card_text_basic_data}}
                     </li>
                     <li class="list__item">
                         <ons-row align="center" class="row ons-row-inner row-center">
-                            <ons-col class="col ons-col-inner">wiek</ons-col>
+                            <ons-col class="col ons-col-inner">{{lang.text_age}}</ons-col>
                             <ons-col class="col ons-col-inner">
-                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="miasto" ng-model="user.dog.age" ng-init="user.dog.age">
+                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="{{lang.text_age}}" ng-model="user.dog.age" ng-init="user.dog.age">
                             </ons-col>
                         </ons-row>
                     </li>
                     <li class="list__item">
                         <ons-row align="center" class="row ons-row-inner row-center">
-                            <ons-col class="col ons-col-inner">data urodzenia</ons-col>
+                            <ons-col class="col ons-col-inner">{{lang.text_birth_Date}}</ons-col>
                             <ons-col class="col ons-col-inner">
-                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="miasto" value="{{user.dog.birth | date:'yyyy-MM-dd'}}">
+                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="{{lang.text_birth_Date}}" value="{{user.dog.birth | date:'yyyy-MM-dd'}}">
                             </ons-col>
                         </ons-row>
                     </li>
                     <li class="list__item">
                         <ons-row align="center" class="row ons-row-inner row-center">
-                            <ons-col class="col ons-col-inner">płeć</ons-col>
+                            <ons-col class="col ons-col-inner">{{lang.text_sex}}</ons-col>
                             <ons-col class="col ons-col-inner">
-                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="miasto" value="{{user.dog.sex}}">
+                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="{{lang.text_sex}}" value="{{user.dog.sex}}">
                             </ons-col>
                         </ons-row>
                     </li>
                     <li class="list__item">
                         <ons-row align="center" class="row ons-row-inner row-center">
-                            <ons-col class="col ons-col-inner">waga</ons-col>
+                            <ons-col class="col ons-col-inner">{{lang.text_weight}}</ons-col>
                             <ons-col class="col ons-col-inner">
                                 <select class="inputClear loginInputStyle connectedInput" id="preSetWeight" dir="rtl">
                                     <option value="1">1kg</option>
@@ -1196,66 +1195,66 @@
                     </li>
                     <li class="list__item">
                         <ons-row align="center" class="row ons-row-inner row-center">
-                            <ons-col class="col ons-col-inner">sterylizacja</ons-col>
+                            <ons-col class="col ons-col-inner">{{lang.text_sterilization}}</ons-col>
                             <ons-col class="col ons-col-inner">
                                 <select id="preSetStery" class="inputClear loginInputStyle connectedInput borderRadiusBR" dir="rtl">
-                                    <option value="0">nie</option>
-                                    <option value="1">tak</option>
+                                    <option value="0">{{lang.text_no}}</option>
+                                    <option value="1">{{lang.text_yes}}</option>
                                 </select>
                             </ons-col>
                         </ons-row>
                     </li>
                     <li class="list__item">
                         <ons-row align="center" class="row ons-row-inner row-center">
-                            <ons-col class="col ons-col-inner">posiada chip</ons-col>
+                            <ons-col class="col ons-col-inner">{{lang.text_has_chip}}</ons-col>
                             <ons-col class="col ons-col-inner">
                                 <select id="preSetChip" class="inputClear loginInputStyle connectedInput borderRadiusBR" dir="rtl">
-                                    <option value="0">nie</option>
-                                    <option value="1">tak</option>
+                                     <option value="0">{{lang.text_no}}</option>
+                                    <option value="1">{{lang.text_yes}}</option>
                                 </select>
                             </ons-col>
                         </ons-row>
                     </li>
                     <li class="list__header" style="margin-top:20px;">
-                        dane właściciela
+                        {{lang.dog_card_text_owner_info}}
                     </li>
                     <li class="list__item">
                         <ons-row align="center" class="row ons-row-inner row-center">
-                            <ons-col class="col ons-col-inner">miasto</ons-col>
+                            <ons-col class="col ons-col-inner">{{lang.city_Text}}</ons-col>
                             <ons-col class="col ons-col-inner">
-                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="miasto" ng-model="user.city" ng-init="user.city">
+                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="{{lang.city_Text}}<" ng-model="user.city" ng-init="user.city">
                             </ons-col>
                         </ons-row>
                     </li>
                     <li class="list__item">
                         <ons-row align="center" class="row ons-row-inner row-center">
-                            <ons-col class="col ons-col-inner">ulica</ons-col>
+                            <ons-col class="col ons-col-inner">{{lang.street_text}}</ons-col>
                             <ons-col class="col ons-col-inner">
-                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="ulica" ng-model="user.address" ng-init="user.address">
+                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="{{lang.street_text}}" ng-model="user.address" ng-init="user.address">
                             </ons-col>
                         </ons-row>
                     </li>
                     <li class="list__item">
                         <ons-row align="center" class="row ons-row-inner row-center">
-                            <ons-col class="col ons-col-inner">nr domu/lokalu</ons-col>
+                            <ons-col class="col ons-col-inner">{{lang.text_house_number}}</ons-col>
                             <ons-col class="col ons-col-inner">
-                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="nr domu/lokalu" ng-model="user.flat_number" ng-init="user.flat_number">
+                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="{{lang.text_house_number}}" ng-model="user.flat_number" ng-init="user.flat_number">
                             </ons-col>
                         </ons-row>
                     </li>
                     <li class="list__item">
                         <ons-row align="center" class="row ons-row-inner row-center">
-                            <ons-col class="col ons-col-inner">telefon</ons-col>
+                            <ons-col class="col ons-col-inner">{{lang.text_phone}}</ons-col>
                             <ons-col class="col ons-col-inner">
-                                <input type="tel" class="text-input text-input--transparent inputWithLabel" placeholder="tel" ng-model="user.phone_number" ng-init="user.phone_number">
+                                <input type="tel" class="text-input text-input--transparent inputWithLabel" placeholder="{{lang.text_phone}}" ng-model="user.phone_number" ng-init="user.phone_number">
                             </ons-col>
                         </ons-row>
                     </li>
                     <li class="list__header" style="margin-top:20px;">
-                        szczepienia
+                        {{lang.dog_card_text_vacc_info}}
                     </li>
                     <li class="list__item">
-                        <div class="inputWithLabel"><span class="inputLabel borderRadiusTL">wścieklizna</span>
+                        <div class="inputWithLabel"><span class="inputLabel borderRadiusTL">{{lang.create_account_text_illness_1}}</span>
                             <div class="customCheckboxHolder borderRadiusTR">
                                 <div class="customCheckboxActive" ng-if="user.dog.rabies_vaccination==1"></div>
                                 <div class="customCheckboxInActive" ng-if="user.dog.rabies_vaccination==0"></div>
@@ -1265,7 +1264,7 @@
                         </div>
                     </li>
                     <li class="list__item">
-                        <div class="inputWithLabel"><span class="inputLabel">nosówka</span>
+                        <div class="inputWithLabel"><span class="inputLabel">{{lang.create_account_text_illness2}}</span>
                             <div class="customCheckboxHolder">
                                 <div class="customCheckboxActive" ng-if="user.dog.distemper_vaccination==1"></div>
                                 <div class="customCheckboxInActive" ng-if="user.dog.distemper_vaccination==0"></div>
@@ -1274,7 +1273,7 @@
                         </div>
                     </li>
                     <li class="list__header" style="margin-top:20px;">
-                        opis behawiorystyczny
+                        {{lang.dog_card_text_behavioral_info}}
                     </li>
                     <li class="list__item">
                         <textarea class="inputClear" style="text-align:left !important;
@@ -1294,7 +1293,7 @@
                         <ons-icon icon="ion-ios-arrow-back" size="28px" fixed-width="false"></ons-icon>
                     </ons-toolbar-button>
                 </div>
-                <div class="center">KARTA PSA</div>
+                <div class="center">{{lang.dog_profile_text_dog_card}}</div>
                 <div class="right">
 
                 </div>
@@ -1304,44 +1303,44 @@
                 <div id="avatarPreview" class="avatar" style="background-image:url('http://doghomework.dev.thickmug.com{{dogInfo.dog.image_url}}');"></div>
                 <div class="dogName">{{dogInfo.dog.name}}</div>
                 <div class="addInfo">RASA: {{dogInfo.dog.breed}}
-                    <br>WŁAŚCICIEL {{dogInfo.first_name}} {{dogInfo.last_name}}</div>
+                    <br>{{lang.dog_card_text_owner}} {{dogInfo.first_name}} {{dogInfo.last_name}}</div>
 
             </div>
             <div class="clear"></div>
             <div class="tabs">
-                <div class="tabActive" ng-if="cardView=='szkolenie'" ng-click="cardViewChange('szkolenie')">SZKOLENIE</div>
-                <div class="tabInActive" ng-if="cardView=='szkolenie'" ng-click="cardViewChange('zdrowie')">ZDROWIE</div>
-                <div class="tabInActive" ng-if="cardView=='zdrowie'" ng-click="cardViewChange('szkolenie')">SZKOLENIE</div>
-                <div class="tabActive" ng-if="cardView=='zdrowie'" ng-click="cardViewChange('zdrowie')">ZDROWIE</div>
+                <div class="tabActive" ng-if="cardView=='szkolenie'" ng-click="cardViewChange('szkolenie')">{{lang.training_text_training}}</div>
+                <div class="tabInActive" ng-if="cardView=='szkolenie'" ng-click="cardViewChange('zdrowie')">{{lang.dog_card_text_zdrowie}}</div>
+                <div class="tabInActive" ng-if="cardView=='zdrowie'" ng-click="cardViewChange('szkolenie')">{{lang.training_text_training}}</div>
+                <div class="tabActive" ng-if="cardView=='zdrowie'" ng-click="cardViewChange('zdrowie')">{{lang.dog_card_text_zdrowie}}</div>
             </div>
             <div class="contenHolder whiteFrame newHolder nonActiveFields" ng-init="updateSelect()" ng-if="cardView=='szkolenie'">
                 <ul class="list">
                     <li class="list__header">
-                        skończone szkolenia
+                        {{lang.trainings_section_text_trainings_done}}
                     </li>
 
                     <li class="list__header" style="margin-top:20px;">
-                        statystyki
+                        {{lang.dog_card_text_stats_text}}
                     </li>
                     <li class="list__item">
                         <ons-row align="center" class="row ons-row-inner row-center">
-                            <ons-col class="col ons-col-inner">podstawowe szkolenia</ons-col>
+                            <ons-col class="col ons-col-inner">{{lang.text_basic_trainings}}</ons-col>
                             <ons-col class="col ons-col-inner">
-                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="miasto" value="{{dogInfo.dog.stats.percentage_of_completion_base_courses}}">
+                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="{{lang.text_basic_trainings}}" value="{{dogInfo.dog.stats.percentage_of_completion_base_courses}}">
                             </ons-col>
                         </ons-row>
                     </li>
                     <li class="list__item">
                         <ons-row align="center" class="row ons-row-inner row-center">
-                            <ons-col class="col ons-col-inner">ukończone zestawy</ons-col>
+                            <ons-col class="col ons-col-inner">{{lang.text_courses_finished}}</ons-col>
                             <ons-col class="col ons-col-inner">
-                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="miasto" value="{{dogInfo.dog.stats.number_of_finished_courses}}">
+                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="{{lang.text_courses_finished}}" value="{{dogInfo.dog.stats.number_of_finished_courses}}">
                             </ons-col>
                         </ons-row>
                     </li>
                     <li class="list__item">
                         <ons-row align="center" class="row ons-row-inner row-center">
-                            <ons-col class="col ons-col-inner">ilość dni na szkoleniach</ons-col>
+                            <ons-col class="col ons-col-inner">{{lang.text_days_of_trainings}}</ons-col>
                             <ons-col class="col ons-col-inner">
                                 <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="0" value="{{dogInfo.dog.stats.days}}">
                             </ons-col>
@@ -1349,9 +1348,9 @@
                     </li>
                     <li class="list__item">
                         <ons-row align="center" class="row ons-row-inner row-center">
-                            <ons-col class="col ons-col-inner">rejestracja</ons-col>
+                            <ons-col class="col ons-col-inner">{{lang.text_registration}}</ons-col>
                             <ons-col class="col ons-col-inner">
-                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="miasto" value="{{dogInfo.register | date:'yyyy-MM-dd'}}">
+                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="{{lang.text_registration}}" value="{{dogInfo.register | date:'yyyy-MM-dd'}}">
                             </ons-col>
                         </ons-row>
                     </li>
@@ -1362,35 +1361,35 @@
             <div class="contenHolder whiteFrame newHolder nonActiveFields" ng-init="updateSelect()" ng-if="cardView=='zdrowie'">
                 <ul class="list">
                     <li class="list__header">
-                        dane podstawowe
+                        {{lang.dog_card_text_basic_data}}
                     </li>
                     <li class="list__item">
                         <ons-row align="center" class="row ons-row-inner row-center">
-                            <ons-col class="col ons-col-inner">wiek</ons-col>
+                            <ons-col class="col ons-col-inner">{{lang.text_age}}</ons-col>
                             <ons-col class="col ons-col-inner">
-                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="miasto" ng-model="dogInfo.dog.age" ng-init="dogInfo.dog.age">
+                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="{{lang.text_age}}" ng-model="dogInfo.dog.age" ng-init="dogInfo.dog.age">
                             </ons-col>
                         </ons-row>
                     </li>
                     <li class="list__item">
                         <ons-row align="center" class="row ons-row-inner row-center">
-                            <ons-col class="col ons-col-inner">data urodzenia</ons-col>
+                            <ons-col class="col ons-col-inner">{{lang.text_birth_Date}}</ons-col>
                             <ons-col class="col ons-col-inner">
-                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="miasto" value="{{dogInfo.dog.birth | date:'yyyy-MM-dd'}}">
+                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="{{lang.text_birth_Date}}" value="{{dogInfo.dog.birth | date:'yyyy-MM-dd'}}">
                             </ons-col>
                         </ons-row>
                     </li>
                     <li class="list__item">
                         <ons-row align="center" class="row ons-row-inner row-center">
-                            <ons-col class="col ons-col-inner">płeć</ons-col>
+                            <ons-col class="col ons-col-inner">{{lang.text_sex}}</ons-col>
                             <ons-col class="col ons-col-inner">
-                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="miasto" value="{{dogInfo.dog.sex}}">
+                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="{{lang.text_sex}}" value="{{dogInfo.dog.sex}}">
                             </ons-col>
                         </ons-row>
                     </li>
                     <li class="list__item">
                         <ons-row align="center" class="row ons-row-inner row-center">
-                            <ons-col class="col ons-col-inner">waga</ons-col>
+                            <ons-col class="col ons-col-inner">{{lang.text_weight}}</ons-col>
                             <ons-col class="col ons-col-inner">
                                 <select class="inputClear loginInputStyle connectedInput" id="preSetWeight" dir="rtl">
                                     <option value="1">1kg</option>
@@ -1514,66 +1513,66 @@
                     </li>
                     <li class="list__item">
                         <ons-row align="center" class="row ons-row-inner row-center">
-                            <ons-col class="col ons-col-inner">sterylizacja</ons-col>
+                            <ons-col class="col ons-col-inner">{{lang.text_sterilization}}</ons-col>
                             <ons-col class="col ons-col-inner">
                                 <select id="preSetStery" class="inputClear loginInputStyle connectedInput borderRadiusBR" dir="rtl">
-                                    <option value="0">nie</option>
-                                    <option value="1">tak</option>
+                                    <option value="0">{{lang.text_no}}</option>
+                                    <option value="1">{{lang.text_yes}}</option>
                                 </select>
                             </ons-col>
                         </ons-row>
                     </li>
                     <li class="list__item">
                         <ons-row align="center" class="row ons-row-inner row-center">
-                            <ons-col class="col ons-col-inner">posiada chip</ons-col>
+                            <ons-col class="col ons-col-inner">{{lang.text_has_chip}}</ons-col>
                             <ons-col class="col ons-col-inner">
                                 <select id="preSetChip" class="inputClear loginInputStyle connectedInput borderRadiusBR" dir="rtl">
-                                    <option value="0">nie</option>
-                                    <option value="1">tak</option>
+                                       <option value="0">{{lang.text_no}}</option>
+                                    <option value="1">{{lang.text_yes}}</option>
                                 </select>
                             </ons-col>
                         </ons-row>
                     </li>
                     <li class="list__header" style="margin-top:20px;">
-                        dane właściciela
+                        {{lang.dog_card_text_owner_info}}
                     </li>
                     <li class="list__item">
                         <ons-row align="center" class="row ons-row-inner row-center">
-                            <ons-col class="col ons-col-inner">miasto</ons-col>
+                            <ons-col class="col ons-col-inner">{{lang.text_city}}</ons-col>
                             <ons-col class="col ons-col-inner">
-                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="miasto" ng-model="dogInfo.city" ng-init="dogInfo.city">
+                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="{{lang.text_city}}" ng-model="dogInfo.city" ng-init="dogInfo.city">
                             </ons-col>
                         </ons-row>
                     </li>
                     <li class="list__item">
                         <ons-row align="center" class="row ons-row-inner row-center">
-                            <ons-col class="col ons-col-inner">ulica</ons-col>
+                            <ons-col class="col ons-col-inner">{{lang.text_street}}</ons-col>
                             <ons-col class="col ons-col-inner">
-                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="ulica" ng-model="dogInfo.address" ng-init="dogInfo.address">
+                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="{{lang.text_street}}" ng-model="dogInfo.address" ng-init="dogInfo.address">
                             </ons-col>
                         </ons-row>
                     </li>
                     <li class="list__item">
                         <ons-row align="center" class="row ons-row-inner row-center">
-                            <ons-col class="col ons-col-inner">nr domu/lokalu</ons-col>
+                            <ons-col class="col ons-col-inner">{{lang.text_house_number}}</ons-col>
                             <ons-col class="col ons-col-inner">
-                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="nr domu/lokalu" ng-model="dogInfo.flat_number" ng-init="dogInfo.flat_number">
+                                <input type="text" class="text-input text-input--transparent inputWithLabel" placeholder="{{lang.text_house_number}}" ng-model="dogInfo.flat_number" ng-init="dogInfo.flat_number">
                             </ons-col>
                         </ons-row>
                     </li>
                     <li class="list__item">
                         <ons-row align="center" class="row ons-row-inner row-center">
-                            <ons-col class="col ons-col-inner">telefon</ons-col>
+                            <ons-col class="col ons-col-inner">{{lang.text_phone}}</ons-col>
                             <ons-col class="col ons-col-inner">
-                                <input type="tel" class="text-input text-input--transparent inputWithLabel" placeholder="tel" ng-model="dogInfo.phone_number" ng-init="dogInfo.phone_number">
+                                <input type="tel" class="text-input text-input--transparent inputWithLabel" placeholder="{{lang.text_phone}}" ng-model="dogInfo.phone_number" ng-init="dogInfo.phone_number">
                             </ons-col>
                         </ons-row>
                     </li>
                     <li class="list__header" style="margin-top:20px;">
-                        szczepienia
+                        {{lang.dog_card_text_vacc_info}}
                     </li>
                     <li class="list__item">
-                        <div class="inputWithLabel"><span class="inputLabel borderRadiusTL">wścieklizna</span>
+                        <div class="inputWithLabel"><span class="inputLabel borderRadiusTL">{{lang.create_account_text_illness_1}}</span>
                             <div class="customCheckboxHolder borderRadiusTR">
                                 <div class="customCheckboxActive" ng-if="dogInfo.dog.rabies_vaccination==1"></div>
                                 <div class="customCheckboxInActive" ng-if="dogInfo.dog.rabies_vaccination==0"></div>
@@ -1583,7 +1582,7 @@
                         </div>
                     </li>
                     <li class="list__item">
-                        <div class="inputWithLabel"><span class="inputLabel">nosówka</span>
+                        <div class="inputWithLabel"><span class="inputLabel">{{lang.create_account_text_illness2}}</span>
                             <div class="customCheckboxHolder">
                                 <div class="customCheckboxActive" ng-if="dogInfo.dog.distemper_vaccination==1"></div>
                                 <div class="customCheckboxInActive" ng-if="dogInfo.dog.distemper_vaccination==0"></div>
@@ -1592,7 +1591,7 @@
                         </div>
                     </li>
                     <li class="list__header" style="margin-top:20px;">
-                        opis behawiorystyczny
+                        {{lang.dog_card_text_behavioral_info}}
                     </li>
                     <li class="list__item">
                         <textarea class="inputClear" style="text-align:left !important;
