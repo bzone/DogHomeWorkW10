@@ -28,6 +28,9 @@
         
         
 $scope.langpl = {
+    p_easy:'ŁATWY',
+    p_medium:'ŚREDNI',
+    p_hard:'TRUDNY',
     day_text: 'Dzień',
     days_text: 'dni',
     finished: 'UKOŃCZONO',
@@ -186,7 +189,7 @@ $scope.langpl = {
     title_your_dog:'TWÓJ PIES',
     title_shared_card:'UDOSTĘPNIONA KARTA',
     text_basic_trainings:'podstawowe szkolenia',
-    text_courses_finished:'ukończone zestawy szkoleniowe',
+    text_courses_finished:'ukończone zestawy',
     text_days_of_trainings:'ilość dni na szkoleniach',
     text_registration:'rejestracja',
     text_age:'wiek',
@@ -206,10 +209,15 @@ $scope.langpl = {
     text_yes:'tak',
     text_no:'nie',
     add_via_nfx:'Dodaj przez NFC',
-    text_scan_qr_code:'Zeskanuj kod QR psa'
+    text_scan_qr_code:'Zeskanuj kod QR psa',
+    text_points_earned:'punkty za szkolenia',
+    add_to_friends:'Dodaj do znajomych'
 	}
 
 $scope.langen = {
+    p_easy:'EASY',
+    p_medium:'MEDIUM',
+    p_hard:'HARD',
     day_text: 'Day',
        days_text: 'days',
     finished: 'FINISHED',
@@ -388,9 +396,14 @@ $scope.langen = {
     text_yes:'yes',
     text_no:'no',
     add_via_nfx:'Add via NFC',
-    text_scan_qr_code:'Scan dog\'s QR-Code'
+    text_scan_qr_code:'Scan dog\'s QR-Code',
+     text_points_earned:'points from curses',
+    add_to_friends:'Add to friends'
 }
 $scope.langde = {
+     p_easy:'einfach',
+    p_medium:'Mittel',
+    p_hard:'hart',
     day_text: 'Tag',
     days_text: 'Tage',
     finished: 'FERTIG',
@@ -569,7 +582,9 @@ $scope.langde = {
     text_yes:'ja',
     text_no:'nein',
     add_via_nfx:'Hinzufügen von NFC',
-    text_scan_qr_code:'Scannen Sie den QR-Code Hund'
+    text_scan_qr_code:'Scannen Sie den QR-Code Hund',
+     text_points_earned:'Punkte für die Ausbildung',
+    add_to_friends:'Zu Freunden hinzufügen'
 	}
         
         
@@ -586,6 +601,35 @@ $scope.langde = {
         $scope.newUser = {};
         $scope.newUser.wscieklizna = false;
         $scope.newUser.nosowka = false;
+        
+        $scope.addToFriends =function(id) {
+            $.ajax({
+                    type: "POST",
+                    url: url + '/api/v1/friends/create',
+                    beforeSend: function () {
+                        $("#spinner").css('display', 'block');
+                    },
+                    data: {
+                        id: id
+                    },
+                 headers: {
+                    "api-key": currentApiKey
+                },
+                    datatype: 'json',
+                    cache: false,
+                    success: function (respond) {
+                        window.console && console.log(respond);
+                        naviDash.popPage();
+                         $("#spinner").fadeOut(1000);
+                    },
+                    error: function (respond) {
+                        $("#spinner").fadeOut(1000);
+                        ons.notification.alert({
+                            message: 'Podane dane są niepoprawne'
+                        });
+                    }
+                });
+        }
 
 
         $scope.wsciekliznaCheckbox = function () {
@@ -985,6 +1029,63 @@ $scope.langde = {
                 });
 
             }
+        }
+        
+        //NOTE: Otwieranie ekranu dodawania psów
+        $scope.addFriends = function () {
+            menu.closeMenu();
+       
+                $scope.currentPage = 'friendsta';
+
+                $.ajax({
+                    type: "GET",
+                    url: url + '/api/v1/friends/search',
+                    beforeSend: function () {
+                        $("#spinner").css('display', 'block');
+                    },
+                    data: {
+                        only_unread: 1
+                    },
+                    headers: {
+                        "api-key": currentApiKey
+                    },
+                    datatype: 'json',
+                    cache: false,
+                    success: function (respond) {
+                        window.console && console.log(respond);
+                        if (respond.status == "success") {
+                            window.console && console.log('Pobrano listę znajomych');
+                            $scope.friendsta = angular.fromJson(respond.data);
+                            angular.forEach($scope.friends, function (friendc, index) {
+                                friendc.friend.dog.age = $scope.calcAge(friendc.friend.dog.birth_date);
+                                var tmp = friendc.friend.dog.birth_date;
+                                tmp = tmp.substring(0, tmp.length - 5);
+                                friendc.friend.dog.birth = tmp;
+                                tmp = friendc.friend.created_at;
+                                tmp = tmp.substring(0, tmp.length - 5);
+                                friendc.friend.register = tmp;
+                            });
+                            naviDash.pushPage('addfriends.html');
+                            $("#spinner").fadeOut(1000);
+
+                        } else if (respond.status == "error") {
+                            window.console && console.log('error ' + respond.data);
+                            $("#spinner").fadeOut(1000);
+                            ons.notification.alert({
+                                message: 'Błąd pobierania danych'
+                            });
+                        }
+                    },
+                    error: function (respond) {
+                        window.console && console.log('error ' + JSON.stringify(respond));
+                        $("#spinner").fadeOut(1000);
+                        ons.notification.alert({
+                            message: 'Podane dane są niepoprawne'
+                        });
+                    }
+                });
+
+           
         }
 
         //NOTE: karta psa

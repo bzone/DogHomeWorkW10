@@ -1548,3 +1548,27 @@ video#really-cool-video {
     padding-left: 20px;
     padding-right: 20px;
 }
+
+.diff {
+    position: absolute;
+    z-index: 20;
+    color: #000;
+    left: 15px;
+    top: 15px;
+    line-height:23px;
+}
+
+.diff span.number {
+    display:inline-block;
+    width:24px;
+    height:24px;
+    background:#000;
+    color:#FFF;
+    text-align:center;
+border-radius:50%;
+}
+
+.friend .diff {
+    top: 70px;
+    left: 65px;
+}
