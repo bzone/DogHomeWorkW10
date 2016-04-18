@@ -101,7 +101,7 @@
             </ons-toolbar>
             <form class="loginStyle">
                 <h1>{{lang.create_account_text_step2}}</h1>
-                <h2>{{lang.create_account_text_login_data</h2>
+                <h2>{{lang.create_account_text_login_data}}</h2>
                 <div class="clear"></div>
                 <div class="formIcon iconPerson">
                     <input type="text" id="newUserName" class="loginInputStyle firstInput" placeholder="{{lang.create_account_text_dog_name}}" ng-model="tmpUser.first_name" ng-init="tmpUser.first_name" />
@@ -426,7 +426,8 @@
                             </div>
                             <div class="arrow"></div>
 
-                            <img src="http://doghomework.dev.thickmug.com{{curse.image_url}}">
+                            <img src="http://doghomework.dev.thickmug.com{{curse.image_url}}" ng-if="curse.image_url.length>2">
+                            <img src="img/dummy_image.png" ng-if="!curse.image_url">
                         </div>
                         <div class="curseDesc">
                             <div class="complete" ng-if="curse.stats.percentage_of_completion==1"></div>
@@ -583,7 +584,7 @@
         <ons-page>
             <ons-toolbar>
                 <div class="left">
-                    <ons-toolbar-button ng-click="naviDash.popPage()">
+                    <ons-toolbar-button ng-click="backToHome()">
                         <ons-icon icon="ion-ios-arrow-back" size="28px" fixed-width="false"></ons-icon>
                     </ons-toolbar-button>
                 </div>
@@ -621,7 +622,7 @@
         <ons-page>
             <ons-toolbar>
                 <div class="left">
-                    <ons-toolbar-button ng-click="naviDash.popPage()">
+                    <ons-toolbar-button ng-click="backToCurseDetails(curseInfo.id)">
                         <ons-icon icon="ion-ios-arrow-back" size="28px" fixed-width="false"></ons-icon>
                     </ons-toolbar-button>
                 </div>
@@ -723,18 +724,25 @@
                     </div>-->
             </ons-toolbar>
             <div>
-                <div class="curse" ng-repeat="curse in userCurses" ng-click="curseDetails(curse.id)">
-                    <div class="curseImageHolder">
-                        <div class="arrow"></div>
+                 <div class="curse" ng-repeat="curse in userCurses" ng-click="curseDetails(curse.id)">
+                        <div class="curseImageHolder">
+                            <div class="diff">
+                            <span class="number">{{curse.difficulty}}</span>
+                                <span ng-if="curse.difficulty==1">{{lang.p_easy}}</span>
+                                <span ng-if="curse.difficulty==2">{{lang.p_medium}}</span>
+                                <span ng-if="curse.difficulty==3">{{lang.p_hard}}</span>
+                            </div>
+                            <div class="arrow"></div>
 
-                        <img src="http://doghomework.dev.thickmug.com{{curse.image_url}}">
+                            <img src="http://doghomework.dev.thickmug.com{{curse.image_url}}" ng-if="curse.image_url.length>2">
+                            <img src="img/dummy_image.png" ng-if="!curse.image_url">
+                        </div>
+                        <div class="curseDesc">
+                            <div class="complete" ng-if="curse.stats.percentage_of_completion==1"></div>
+                            <h2>{{curse.name}}</h2> {{curse.description | limitTo:80}}...
+                            <span class="curseStats">{{lang.text_chapters}}: {{curse.number_of_phases}} | {{lang.level_of_completion}} {{curse.stats.percentage_of_completion}}%</span>
+                        </div>
                     </div>
-                    <div class="curseDesc">
-                        <div class="complete" ng-if="curse.stats.percentage_of_completion==1"></div>
-                        <h2>{{curse.name}}</h2> {{curse.description | limitTo:80}}...
-                        <span class="curseStats">ETAPY: {{curse.number_of_phases}} | STOPIEŃ UKOŃCZENIA {{curse.stats.percentage_of_completion}}%</span>
-                    </div>
-                </div>
 
 
             </div>
@@ -978,8 +986,8 @@
                     </li>
                     <li class="list__item">
                         <div class="inputWithLabel"><span class="inputLabel">{{lang.date_text}}</span>
-                            <input type="text" class="loginInputStyle connectedInput" value="{{user.dog. rabies_vaccination_at  | date:'yyyy-MM-dd'}}" step="1" class="inputClear" ng-if="user.dog.rabies_vaccination==1">
-                            <input type="text" class="loginInputStyle connectedInput" value="{{user.dog. rabies_vaccination_at  | date:'yyyy-MM-dd'}}" step="1" class="inputClear" ng-if="user.dog.rabies_vaccination==0" disabled>
+                            <input type="text" class="loginInputStyle connectedInput" ng-init="user.dog.rabies_vaccination_at" ng-model="user.dog.rabies_vaccination_at" step="1" class="inputClear" ng-if="user.dog.rabies_vaccination==1">
+                            <input type="text" class="loginInputStyle connectedInput" ng-model="user.dog.rabies_vaccination_at"  ng-init="user.dog.rabies_vaccination_at " step="1" class="inputClear" ng-if="user.dog.rabies_vaccination==0" disabled>
                             <div class="clear"></div>
                         </div>
                     </li>
@@ -994,8 +1002,8 @@
                     </li>
                     <li class="list__item">
                         <div class="inputWithLabel"><span class="inputLabel borderRadiusBL">{{lang.date_text}}</span>
-                            <input type="text" class="loginInputStyle connectedInput borderRadiusBR" value="{{user.dog.distemper_vaccination_at | date:'yyyy-MM-dd'}}" step="1" class="inputClear" ng-if="user.dog.distemper_vaccination==1">
-                            <input type="text" class="loginInputStyle connectedInput borderRadiusBR" value="{{user.dog.distemper_vaccination_at  | date:'yyyy-MM-dd'}}" step="1" class="inputClear" ng-if="user.dog.distemper_vaccination==0" disabled>
+                            <input type="text" class="loginInputStyle connectedInput borderRadiusBR" ng-init="user.dog.distemper_vaccination_at" ng-model="user.dog.distemper_vaccination_at" step="1" class="inputClear" ng-if="user.dog.distemper_vaccination==1">
+                            <input type="text" class="loginInputStyle connectedInput borderRadiusBR" ng-init="user.dog.distemper_vaccination_at" ng-model="user.dog.distemper_vaccination_at" step="1" class="inputClear" ng-if="user.dog.distemper_vaccination==0" disabled>
                             <div class="clear"></div>
                         </div>
                     </li>
